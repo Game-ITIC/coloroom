@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class PuzzleBottle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ColorManager.ColorKey[] stack = new ColorManager.ColorKey[0];
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //
 }
