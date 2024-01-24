@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class ColorManager : MonoBehaviour
 {
+    public enum ColorKey { pink, blue, gold }
+
     [Serializable]
-    public class Color
+    private class Color
     {
-        public string id = "";
+        public ColorKey key;
         public Material material;
     }
 
     [SerializeField] private Color[] colors;
 
-    public Material GetColor(string id)
+    public Material GetColor(ColorKey key)
     {
         foreach (var c in colors)
-            if (c.id == id) return c.material;
+            if (c.key == key) return c.material;
 
         return null;
     }
