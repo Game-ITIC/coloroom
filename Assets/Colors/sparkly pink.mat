@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: sparkly pink
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: efa046b2194e0524c82991ba4b21da7e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
+  m_ValidKeywords: []
+  m_InvalidKeywords:
   - _EMISSION
-  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -60,6 +60,26 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - vvxxww:
+        m_Texture: {fileID: 2800000, guid: 560c2dac3de07054380a26fbe275218c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - vwwvvx:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - vwxwww:
+        m_Texture: {fileID: 2800000, guid: c8f3ca86720351e4384645823b07b0bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - wvvxxv:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - wxxwww:
+        m_Texture: {fileID: 2800000, guid: 39698dc72d811ad4caaf2c8a1a2cb9f3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
@@ -78,7 +98,19 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - vvxwwx: 0.1
+    - vwwxwx: 2
+    - vxvvvw: 1.28
+    - vxwwww: 1.5
+    - wvvxxw: 2.5
+    - wvwvww: 0
+    - wvwwxv: 1
+    - wxxxvv: 1
+    - xvwvwx: 0.5
+    - xxwxww: 0.5
+    - xxwxwx: 0
     m_Colors:
-    - _Color: {r: 0.7529412, g: 0.06666667, b: 0.49019608, a: 1}
-    - _EmissionColor: {r: 1, g: 0.7216981, b: 0.7764461, a: 1}
+    - _Color: {r: 1, g: 0.4669811, b: 0.8239569, a: 1}
+    - _EmissionColor: {r: 0.63549966, g: 0.8679245, b: 0.5772517, a: 1}
+    - vwxvww: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
