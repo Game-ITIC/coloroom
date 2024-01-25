@@ -100,12 +100,12 @@ Material:
     - _ZWrite: 1
     - vvxwwx: 0.1
     - vwwxwx: 4.5
-    - vxvvvw: 2.8
+    - vxvvvw: 3.06
     - vxwwww: 1.5
     - wvvxxw: 2.5
-    - wvwvww: 0
+    - wvwvww: 0.278
     - wvwwxv: 1
-    - wxxxvv: 1.37
+    - wxxxvv: 3
     - xvwvwx: 0.5
     - xxwxww: 0.5
     - xxwxwx: 0
