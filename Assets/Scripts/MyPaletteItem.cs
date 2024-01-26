@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class MyPaletteItem : MonoBehaviour
 {
-    //active Item
+    //static all
+
+    //active Item (select a drugie vse otpustit)
+
+    //kogda najal na item nujno skazat teper najmi na spot
+    //i naoborot
 
     //use
+
+    //poyavleniye noviy   anim
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
+    public static PuzzleManager Instance;
+
     [Serializable] private class Level
     {
         [Serializable] public struct ColorKeyArray
@@ -37,6 +39,8 @@ public class PuzzleManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         if (!PlayerPrefs.HasKey("puzzle-level-id")) PlayerPrefs.SetInt("puzzle-level-id", 0);
     }
 
@@ -55,6 +59,7 @@ public class PuzzleManager : MonoBehaviour
         if (_levelData == null) _levelData = levels[id];
 
         //generate bottles
+        //position them smart
     }
 
     private void SaveLevel()
@@ -67,4 +72,15 @@ public class PuzzleManager : MonoBehaviour
     }
 
     //next level ?
+
+    public void AfterBottlePourIn(PuzzleBottle bottle)
+    {
+        //checks
+        //CheckComplete
+        //proverit pobeda - polniy li odin tsvet ili v drugix ne ostalos etogo tsveta 
+
+        //dobavit nov tsveta v palette push
+
+        //bottle events
+    }
 }

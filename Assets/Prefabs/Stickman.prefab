@@ -4840,6 +4840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7170258743923252587}
   - component: {fileID: 8053375426258324126}
+  - component: {fileID: 1918803461772636183}
   m_Layer: 0
   m_Name: Stickman
   m_TagString: Untagged
@@ -4878,6 +4879,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5926647797224236529}
   pose: 0
+--- !u!114 &1918803461772636183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825625491831121754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c034c2dbfdbb0534bbb24f5a04ba31d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  events:
+  - globalKey: 
+    delay: 0
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7936581567417559761}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7936581567417559761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,7 +4938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7936581567417559761}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.8277182, z: -0, w: -0.56114405}
+  m_LocalRotation: {x: 0, y: 0.54818445, z: -0, w: -0.8363575}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4941,7 +4973,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df60c958c09176947bd4c853aae02583, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ColorManager : MonoBehaviour
 {
+    public static ColorManager Instance;
+
     public enum ColorKey { pink, blue, gold }
 
     [Serializable]
@@ -15,6 +17,11 @@ public class ColorManager : MonoBehaviour
     }
 
     [SerializeField] private Color[] colors;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public Material GetColor(ColorKey key)
     {
