@@ -11,12 +11,12 @@ public class BottleController : MonoBehaviour
 
     private GameObject target;
     static BottleController selected;
-    bool isFinished=false, isFull, isEmpty, isBlocked=false;
+    public Transform[] chunksArray;
+    bool isFinished=false, isFull, isEmpty, isBlocked, isMatching;
     bool lastActiveIs3, lastActiveIs2, lastActiveIs1;
+    int lastActiveIndex;
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         chunk3 = transform.GetChild(3).gameObject;
@@ -27,79 +27,79 @@ public class BottleController : MonoBehaviour
         color3 = chunk3.GetComponent<Renderer>();
         color2 = chunk2.GetComponent<Renderer>();
         color1 = chunk1.GetComponent<Renderer>();
-        color0 = chunk0.GetComponent<Renderer>();
+        color0 = chunk0.GetComponent<Renderer>(); 
+    }
 
 
+    void Update()
+    {
+        //array of chunks (children) of each bottle
+        if (gameObject != null)
+        {
+            chunksArray = gameObject.GetComponentsInChildren<Transform>(true);
+        }
 
         //check if bottle is finished
         if (chunk3.activeSelf && chunk2.activeSelf && chunk1.activeSelf && chunk0.activeSelf)
         {
             isFull = true;
 
-            if(color0.sharedMaterial.name == color1.sharedMaterial.name && color1.sharedMaterial.name == color2.sharedMaterial.name && color2.sharedMaterial.name == color3.sharedMaterial.name)
+            if (color0.sharedMaterial.name == color1.sharedMaterial.name && color1.sharedMaterial.name == color2.sharedMaterial.name && color2.sharedMaterial.name == color3.sharedMaterial.name)
             {
-                Debug.Log("banka full i same");
                 isFinished = true;
             }
             else
             {
-                Debug.Log("banka full i not same");
+                isFinished = false;
             }
         }
         else
         {
-            Debug.Log("banka not full");
+            isFull = false;
+            isFinished = false;
         }
 
-
-        //check if materials are same
-        if (color1.sharedMaterial.name == color2.sharedMaterial.name)
-            {
-                Debug.Log("Object1 and Object2 are same.");
-            }
-            else
-            {
-                Debug.Log("Object1 and Object2 are lohs.");
-            }
-
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //check last active child
-        if (!chunk3.activeSelf)
+        //last active chunk
+        if (!chunksArray[4].gameObject.activeSelf)
         {
             isEmpty = true;
-            Debug.Log("empty");
+            isFull = false;
         }
-        else if (!chunk2.activeSelf)
+        if (!chunksArray[3].gameObject.activeSelf)
         {
-            lastActiveIs1 = false;
-            lastActiveIs2 = false;
-            lastActiveIs3 = true;
-            Debug.Log("last active is 3");
+            lastActiveIndex = 4;
+            isEmpty = false;
+            isFull = false;
         }
-        else if (!chunk1.activeSelf)
+        if (!chunksArray[2].gameObject.activeSelf)
         {
-            lastActiveIs1 = false;
-            lastActiveIs2 = true;
-            lastActiveIs3 = false;
-            Debug.Log("last active is 2");
+            lastActiveIndex = 3;
+            isEmpty = false;
+            isFull = false;
         }
-        else if (!chunk0.activeSelf)
+        if (!chunksArray[1].gameObject.activeSelf)
         {
-            lastActiveIs1 = true;
-            lastActiveIs2 = false;
-            lastActiveIs3 = false;
-            Debug.Log("last active is 1");
+            lastActiveIndex = 2;
+            isEmpty = false;
+            isFull = false;
         }
         else
         {
-            Debug.Log("full");
+            lastActiveIndex = 1;
+            isFull = true;
+            isEmpty = false;
         }
 
+
+        //check if two consequent materials are same
+        if (color1.sharedMaterial.name == color2.sharedMaterial.name)
+        {
+            //Debug.Log("Object1 and Object2 are same.");
+        }
+        else
+        {
+            //Debug.Log("Object1 and Object2 are lohs.");
+        }
     }
 
     private void OnMouseDown()
@@ -109,11 +109,9 @@ public class BottleController : MonoBehaviour
         {
             selected = this;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
-            Debug.Log("ya vibral");
         }
         else if (selected != null)
         {
-            Debug.Log("chto-to proishodit");
             //checking conditions of colors and chunks
             if (isFull)
             {
@@ -122,10 +120,17 @@ public class BottleController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Molodez, nalil");
+                //selected moves towards target and plays animation 
+                //change color of the target
+                if (chunksArray[lastActiveIndex].GetComponent<Renderer>().sharedMaterial.name == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.name)
+                {
+                    chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
+                    chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+                }
+                
             }
-            //selected moves towards target and plays animation 
-            //change color of the target
+
             selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
             selected = null;
         }
