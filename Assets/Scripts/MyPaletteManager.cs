@@ -23,10 +23,11 @@ public class MyPaletteManager : MonoBehaviour
     }
 
     [SerializeField] private Palette palette;
-    //[Space]
-    //prefabs
+    [Space]
+    [SerializeField] private MyPaletteItem paletteItemPrefab;
+    [SerializeField] private RectTransform paletteItemParent;
 
-    private MyPaletteItem[] _items;
+    private List<MyPaletteItem> _items = new List<MyPaletteItem>();
 
     private void Awake()
     {
@@ -40,17 +41,25 @@ public class MyPaletteManager : MonoBehaviour
 
     private void OpenPalette()
     {
-        //delete olds
+        for (int i = 0; i < paletteItemParent.childCount; i++)
+            Destroy(paletteItemParent.GetChild(i));
+        ////sdelat umnee esli yest tsvet ostavit i minusovat...
 
         var p = JsonUtility.FromJson<Palette>(PlayerPrefs.GetString("my-palette-data"));
         if (p != null) palette = p;
 
-        //draw palette items
+        foreach (var item in palette.items)
+        {
+            var i = Instantiate(paletteItemPrefab, paletteItemParent);
+            i.SetColor(item.color);
+
+            _items.Add(i);
+        }
     }
 
     private void SavePalette()
     {
-        //read from items into palette
+        //read from _items into palette
 
         PlayerPrefs.SetString("my-palette-data", JsonUtility.ToJson(palette));
     }

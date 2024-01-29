@@ -7,15 +7,18 @@ public class RoomColorSpotButton : MonoBehaviour
     public static List<RoomColorSpotButton> all = new List<RoomColorSpotButton>();
     public static RoomColorSpotButton selected = null;
 
-    //static all
-
-    //active one (a drugie vse skrit i pokazat knopki x i v)
-
     [SerializeField] private RoomColorSpot colorSpot;
+    [Space]
+    [SerializeField] private GlobalEvent events;
 
     private void Awake()
     {
         all.Add(this);
+    }
+
+    private void Start()
+    {
+        Invoke("mode-0");
     }
 
     public void SetColorSpot(RoomColorSpot value)
@@ -32,11 +35,19 @@ public class RoomColorSpotButton : MonoBehaviour
 
         colorSpot.OnSelect();
 
-        //colorSpot.SetColor(ColorManager.ColorKey.pink);//////
+        if (MyPaletteItem.selected == null)
+        {
+            Invoke("mode-1");
+        }
+        else
+        {
+            var c = MyPaletteItem.selected.GetColor();
+            colorSpot.SetColor(c);
 
-        foreach (var b in all)
-            b.gameObject.SetActive(false);//////
-        //hide all spot buttons
+            Invoke("mode-2");
+        }
+
+        foreach (var b in all) if (b != this) b.Invoke("hide");
         //show exit and save button of this
     }
 
@@ -45,5 +56,42 @@ public class RoomColorSpotButton : MonoBehaviour
         selected = null;
 
         colorSpot.OnUnselect();
+
+        ///////
+    }
+
+    public void OnPaletteSelect()
+    {
+        var c = MyPaletteItem.selected.GetColor();
+
+        colorSpot.SetColor(c);
+
+        Invoke("mode-2");
+    }
+
+    public void OnCancel()
+    {
+        colorSpot.CancelColor();
+
+        //
+        foreach (var b in all) b.Invoke("mode-0");
+
+        OnUnclick();
+    }
+
+    public void OnConfirm()
+    {
+        colorSpot.SaveColor();
+
+        //
+        //palette item waste
+        foreach (var b in all) b.Invoke("mode-0");
+
+        OnUnclick();
+    }
+
+    public void Invoke(string key)
+    {
+        if (events != null) events.Invoke(key);
     }
 }

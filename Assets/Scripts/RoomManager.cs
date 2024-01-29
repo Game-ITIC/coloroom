@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class RoomManager : MonoBehaviour
 {
@@ -11,34 +13,56 @@ public class RoomManager : MonoBehaviour
     [Space]
     [SerializeField] private GlobalEvent events;
 
-    private RoomColorSpot[] spots;
+    [Serializable]
+    private class Room
+    {
+        public bool isOpen = false;
+        public ColorManager.ColorKey?[] spotColors = {};
+    }
+
+    private Room room;
+    
+    private RoomColorSpot[] _spots;
 
     private void Awake()
     {
-        spots = GetComponentsInChildren<RoomColorSpot>(false);
+        _spots = GetComponentsInChildren<RoomColorSpot>(false);
+
+        room = new Room();
+        room.isOpen = isOpen;
     }
 
     private void Start()
     {
-        /*if (!isOpen)
-        {
-            events.Invoke("on-room-lock");
-            return;
-        }*/
-
         CreateSpotButtons();
 
-        Load();
+        LoadRoom();
     }
 
-    private void Load()
+    private void LoadRoom()
     {
-        //get saved colors
+        var r = JsonUtility.FromJson<Room>(PlayerPrefs.GetString("my-room-data-" + gameObject.GetUPID()));
+        if (r != null) room = r;
+
+        if (!room.isOpen)
+        {
+            if (events != null) events.Invoke("on-room-lock");
+            GlobalEvent.InvokeGlobal("on-any-room-lock");
+
+            return;
+        }
+
+        for (int i = 0; i < room.spotColors.Length; i++)
+        {
+            if (i >= _spots.Length) break;
+
+            _spots[i].SetColor(room.spotColors[i]);
+        }
 
         if (events != null) events.Invoke("on-room-load");
     }
 
-    private void Save()
+    private void SaveRoom()
     {
         //save room opened
         //save spots colors
@@ -48,7 +72,9 @@ public class RoomManager : MonoBehaviour
 
     private void CreateSpotButtons()
     {
-        foreach (RoomColorSpot spot in spots)
+        //delete olds check?
+
+        foreach (RoomColorSpot spot in _spots)
         {
             var sb = Instantiate(spotButtonPrefab, spotButtonParent);
             sb.SetColorSpot(spot);
