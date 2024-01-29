@@ -47,6 +47,7 @@ public class BottleController : MonoBehaviour
             if (color0.sharedMaterial.color == color1.sharedMaterial.color && color1.sharedMaterial.color == color2.sharedMaterial.color && color2.sharedMaterial.color == color3.sharedMaterial.color)
             {
                 isFinished = true;
+                chunksArray[5].gameObject.SetActive(true);
             }
             else
             {
@@ -128,6 +129,20 @@ public class BottleController : MonoBehaviour
                 chunksArray[4].gameObject.SetActive(true);
                 chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                 selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+
+                if(selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                {
+                    chunksArray[3].gameObject.SetActive(true);
+                    chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[selected.lastActiveIndex+1].gameObject.SetActive(false);
+                }
+                if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                {
+                    chunksArray[2].gameObject.SetActive(true);
+                    chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
+                }
+
                 isEmpty = false;
             }
             else
@@ -137,6 +152,25 @@ public class BottleController : MonoBehaviour
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                     selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+
+                    if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                    {
+                        if (chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
+                        {
+                            chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
+                            chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                            selected.chunksArray[selected.lastActiveIndex + 1].gameObject.SetActive(false);
+                        }
+                    }
+                    if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                    {
+                        if (chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
+                        {
+                            chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
+                            chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                            selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
+                        }
+                    }
                 }
             }
             selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
