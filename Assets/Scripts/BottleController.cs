@@ -44,7 +44,7 @@ public class BottleController : MonoBehaviour
         {
             isFull = true;
 
-            if (color0.sharedMaterial.name == color1.sharedMaterial.name && color1.sharedMaterial.name == color2.sharedMaterial.name && color2.sharedMaterial.name == color3.sharedMaterial.name)
+            if (color0.sharedMaterial.color == color1.sharedMaterial.color && color1.sharedMaterial.color == color2.sharedMaterial.color && color2.sharedMaterial.color == color3.sharedMaterial.color)
             {
                 isFinished = true;
             }
@@ -65,19 +65,19 @@ public class BottleController : MonoBehaviour
             isEmpty = true;
             isFull = false;
         }
-        if (!chunksArray[3].gameObject.activeSelf)
+        else if (!chunksArray[3].gameObject.activeSelf)
         {
             lastActiveIndex = 4;
             isEmpty = false;
             isFull = false;
         }
-        if (!chunksArray[2].gameObject.activeSelf)
+        else if (!chunksArray[2].gameObject.activeSelf)
         {
             lastActiveIndex = 3;
             isEmpty = false;
             isFull = false;
         }
-        if (!chunksArray[1].gameObject.activeSelf)
+        else if (!chunksArray[1].gameObject.activeSelf)
         {
             lastActiveIndex = 2;
             isEmpty = false;
@@ -89,10 +89,10 @@ public class BottleController : MonoBehaviour
             isFull = true;
             isEmpty = false;
         }
-
+       
 
         //check if two consequent materials are same
-        if (color1.sharedMaterial.name == color2.sharedMaterial.name)
+        if (color1.sharedMaterial.color == color2.sharedMaterial.color)
         {
             //Debug.Log("Object1 and Object2 are same.");
         }
@@ -110,7 +110,12 @@ public class BottleController : MonoBehaviour
             selected = this;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
         }
-        else if (selected != null)
+        else if (selected == this)
+        {
+            selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
+            selected = null;
+        }
+        else 
         {
             //checking conditions of colors and chunks
             if (isFull)
@@ -118,19 +123,22 @@ public class BottleController : MonoBehaviour
                 isBlocked = true;
                 Debug.Log("Debil, kuda lyosh!!!");
             }
-            else
+            else if (isEmpty)
             {
-                //selected moves towards target and plays animation 
-                //change color of the target
-                if (chunksArray[lastActiveIndex].GetComponent<Renderer>().sharedMaterial.name == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.name)
+                chunksArray[4].gameObject.SetActive(true);
+                chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+                isEmpty = false;
+            }
+            else
+            {             
+                if (chunksArray[lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                     selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
                 }
-                
             }
-
             selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
             selected = null;
         }
