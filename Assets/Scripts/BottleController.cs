@@ -8,6 +8,7 @@ public class BottleController : MonoBehaviour
 {
     GameObject chunk3, chunk2, chunk1, chunk0;
     Renderer color3, color2, color1, color0;
+    Animator anima;
 
     private GameObject target;
     static BottleController selected;
@@ -27,7 +28,9 @@ public class BottleController : MonoBehaviour
         color3 = chunk3.GetComponent<Renderer>();
         color2 = chunk2.GetComponent<Renderer>();
         color1 = chunk1.GetComponent<Renderer>();
-        color0 = chunk0.GetComponent<Renderer>(); 
+        color0 = chunk0.GetComponent<Renderer>();
+
+        anima = GetComponent<Animator>();
     }
 
 
@@ -90,21 +93,10 @@ public class BottleController : MonoBehaviour
             isFull = true;
             isEmpty = false;
         }
-       
-
-        //check if two consequent materials are same
-        if (color1.sharedMaterial.color == color2.sharedMaterial.color)
-        {
-            //Debug.Log("Object1 and Object2 are same.");
-        }
-        else
-        {
-            //Debug.Log("Object1 and Object2 are lohs.");
-        }
     }
-
     private void OnMouseDown()
     {
+
         //if bottle not finished, lift the bottle and select
         if (!isFinished && selected==null)
         {
@@ -122,27 +114,35 @@ public class BottleController : MonoBehaviour
             if (isFull)
             {
                 isBlocked = true;
-                Debug.Log("Debil, kuda lyosh!!!");
+                selected.anima.SetTrigger("isBlocked");
             }
             else if (isEmpty)
             {
                 chunksArray[4].gameObject.SetActive(true);
                 chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+                selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
+                //yield return new WaitForEndOfFrame();
+                //OnPourAnimationComplete();
+                //selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
 
-                if(selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                if (selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
-                    chunksArray[3].gameObject.SetActive(true);
-                    chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                    selected.chunksArray[selected.lastActiveIndex+1].gameObject.SetActive(false);
+                        chunksArray[3].gameObject.SetActive(true);
+                        chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                        selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
+                        //yield return new WaitForEndOfFrame();
+                        //OnPourAnimationComplete();
+                        //selected.chunksArray[selected.lastActiveIndex+1].gameObject.SetActive(false);
                 }
                 if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
-                {
-                    chunksArray[2].gameObject.SetActive(true);
-                    chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                    selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
+                {            
+                        chunksArray[2].gameObject.SetActive(true);
+                        chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                        selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                        //yield return new WaitForEndOfFrame();
+                        //OnPourAnimationComplete();
+                        //selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
                 }
-
                 isEmpty = false;
             }
             else
@@ -151,7 +151,10 @@ public class BottleController : MonoBehaviour
                 {
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                    selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
+                    selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
+                    //yield return new WaitForEndOfFrame();
+                    //OnPourAnimationComplete();
+                    //selected.chunksArray[selected.lastActiveIndex].gameObject.SetActive(false);
 
                     if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                     {
@@ -159,7 +162,10 @@ public class BottleController : MonoBehaviour
                         {
                             chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
                             chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                            selected.chunksArray[selected.lastActiveIndex + 1].gameObject.SetActive(false);
+                            selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
+                            //yield return new WaitForEndOfFrame();
+                            //OnPourAnimationComplete();
+                            //selected.chunksArray[selected.lastActiveIndex + 1].gameObject.SetActive(false);
                         }
                     }
                     if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
@@ -168,14 +174,26 @@ public class BottleController : MonoBehaviour
                         {
                             chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
                             chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                            selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
+                            selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                            //yield return new WaitForEndOfFrame();
+                            //OnPourAnimationComplete();
+                            //selected.chunksArray[selected.lastActiveIndex + 2].gameObject.SetActive(false);
                         }
                     }
+                }
+                else
+                {
+                    selected.anima.SetTrigger("isBlocked");
                 }
             }
             selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
             selected = null;
         }
 
+    }
+
+    public void OnPourAnimationComplete(GameObject go)
+    {
+       go.SetActive(false);
     }
 }
