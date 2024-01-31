@@ -9,6 +9,7 @@ public class BottleController : MonoBehaviour
     GameObject chunk3, chunk2, chunk1, chunk0;
     Renderer color3, color2, color1, color0;
     Animator anima;
+    public AudioSource aud;
 
     static BottleController selected;
     public Transform[] chunksArray;
@@ -31,6 +32,7 @@ public class BottleController : MonoBehaviour
         color0 = chunk0.GetComponent<Renderer>();
 
         anima = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
 
         originalPosition = transform.position;
     }
@@ -104,6 +106,7 @@ public class BottleController : MonoBehaviour
         {
             selected = this;
             transform.position = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);
+            aud.Play();
         }
         //if it's the same bottle
         else if (selected == this)
