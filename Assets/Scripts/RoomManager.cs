@@ -26,7 +26,7 @@ public class RoomManager : MonoBehaviour
 
     private void Awake()
     {
-        _spots = GetComponentsInChildren<RoomColorSpot>(false);
+        _spots = GetComponentsInChildren<RoomColorSpot>(true);
 
         room = new Room();
         room.isOpen = isOpen;
@@ -80,9 +80,15 @@ public class RoomManager : MonoBehaviour
         {
             var sb = Instantiate(spotButtonPrefab, spotButtonParent);
             sb.SetColorSpot(spot);
+            spot.SetColorSpotButton(sb);
 
             sb.GetComponent<UIElementOnObject>().SetTarget(spot.transform);
         }
+    }
+
+    public void OnRoomChange()
+    {
+
     }
 
     //update progressbar

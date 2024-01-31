@@ -12,6 +12,7 @@ public class RoomColorSpot : MonoBehaviour
 
     private ColorManager.ColorKey? _colorKey = null;
     private ColorManager.ColorKey? _newColorKey = null;
+    private RoomColorSpotButton _button;
 
     private void Awake()
     {
@@ -78,5 +79,22 @@ public class RoomColorSpot : MonoBehaviour
     {
         foreach (var mr in meshRenderers)
             SelectOutliner.Instance.Unselect(mr.meshRenderer.gameObject);
+    }
+
+    public void SetColorSpotButton(RoomColorSpotButton btn)
+    {
+        _button = btn;
+
+        _button.gameObject.SetActive(gameObject.activeSelf);
+    }
+
+    private void OnEnable()
+    {
+        if (_button) _button.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        if (_button) _button.gameObject.SetActive(false);
     }
 }
