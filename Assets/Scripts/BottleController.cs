@@ -10,13 +10,11 @@ public class BottleController : MonoBehaviour
     Renderer color3, color2, color1, color0;
     Animator anima;
 
-    private GameObject target;
     static BottleController selected;
     public Transform[] chunksArray;
-    bool isFinished=false, isFull, isEmpty, isBlocked, isMatching;
-    bool lastActiveIs3, lastActiveIs2, lastActiveIs1;
+    bool isFinished=false, isFull, isEmpty;
     int lastActiveIndex;
-    float upDock = 1.0f;
+    float upDock = 0.5f, rightDock = 0.2f;
     public Vector3 originalPosition;
 
 
@@ -119,75 +117,108 @@ public class BottleController : MonoBehaviour
             //no space (but not finished)
             if (isFull)
             {
-                isBlocked = true;
                 selected.anima.SetTrigger("isBlocked");
+                selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
+                selected = null;
             } //empty bottle
             else if (isEmpty)
             {
-                selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                 chunksArray[4].gameObject.SetActive(true);
                 chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                 selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                 selected.anima.SetTrigger("isPouring");
 
+                //second consequent
                 if (selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
-                        selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
-                        chunksArray[3].gameObject.SetActive(true);
-                        chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                        selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
-                        selected.anima.SetTrigger("isPouring");
-                }
-                if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
-                {     
-                        selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                    chunksArray[3].gameObject.SetActive(true);
+                    chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
+                    selected.anima.SetTrigger("isPouring");
+
+                    //third consequent
+                    if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                    {
+                        selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                         chunksArray[2].gameObject.SetActive(true);
                         chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                        selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                         selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
                         selected.anima.SetTrigger("isPouring");
+                        Invoke("AfterWaiting", 1.5f);
+                    }
+                    else
+                    {
+                        Invoke("AfterWaiting", 1.5f);
+                    }
                 }
+                else
+                {
+                    Invoke("AfterWaiting", 1.5f);
+                }
+                
                 isEmpty = false;
             } //pouring (non empty)
             else
             {             
                 if (chunksArray[lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
-                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                     selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                     selected.anima.SetTrigger("isPouring");
-
+                    
+                    //second consequent
                     if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                     {
                         if (chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
                         {
-                            selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                            selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                             chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
                             chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                            selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                             selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
                             selected.anima.SetTrigger("isPouring");
+
+                            //third cinsequent
+                            if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                            {
+                                if (chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
+                                {
+                                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
+                                    chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
+                                    chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                                    selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                                    selected.anima.SetTrigger("isPouring");
+                                    Invoke("AfterWaiting", 1.5f);
+                                }
+                            }
+                            else
+                            {
+                                Invoke("AfterWaiting", 1.5f);
+                            }
                         }
                     }
-                    if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                    else
                     {
-                        if (chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
-                        {
-                            selected.transform.position = new Vector3(chunksArray[7].transform.position.x, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
-                            chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
-                            chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                            selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
-                            selected.anima.SetTrigger("isPouring");
-                        }
-                    }
+                        Invoke("AfterWaiting", 1.5f);
+                    }                  
                 }
                 else
                 {
                     selected.anima.SetTrigger("isBlocked");
+                    selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
+                    selected = null;
                 }
+               
             }
-            selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y - 1.0f, selected.transform.position.z);
-            selected = null;
         }
 
     }
@@ -195,13 +226,11 @@ public class BottleController : MonoBehaviour
     public void OnPourAnimationComplete(GameObject go)
     {
        go.SetActive(false);
-       //selected.transform.position = new Vector3(selected.transform.position.x, selected.transform.position.y + 1.0f, selected.transform.position.z);
-       //transform.position = originalPosition;
-       //Debug.Log("orig pos: " + originalPosition);
     }
 
-    public void GoBackPos(Vector3 pos)
+    void AfterWaiting()
     {
-        transform.position = pos;
+        selected.transform.position = selected.originalPosition;
+        selected = null;
     }
 }

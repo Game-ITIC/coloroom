@@ -19,12 +19,6 @@ public class PourAnimationHandler : MonoBehaviour
 
     public void OnPourAnimationComplete(GameObject go)
     {
-        //bc.transform.position = new Vector3(bc.transform.position.x, bc.transform.position.y + 5.0f, bc.transform.position.z);
-        Debug.Log("curr pos: " + bc.transform.position);
-        Debug.Log("orig pos: " + bc.originalPosition);
-        Debug.Log("aboba pos: " + transform.position);
-        bc.transform.position = bc.originalPosition;
         bc.OnPourAnimationComplete(gameObject);
-        bc.GoBackPos(bc.transform.position);
     }
 }
