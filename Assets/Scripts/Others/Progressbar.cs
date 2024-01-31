@@ -20,6 +20,8 @@ public class Progressbar : MonoBehaviour
     public void SetValue(float val)
     {
         //
+        //anim
+        rect.localScale = new Vector3(val, 1f, 1f);
 
         events.Invoke("on-value-change");
     }

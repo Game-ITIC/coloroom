@@ -16,7 +16,7 @@ public class MyPaletteManager : MonoBehaviour
             }
 
             public ColorManager.ColorKey color;
-            public int count = 0;
+            public int count = 1;
         }
 
         public List<Item> items = new List<Item>();
@@ -50,6 +50,8 @@ public class MyPaletteManager : MonoBehaviour
 
         foreach (var item in palette.items)
         {
+            if (item.count < 1) continue;
+
             var i = Instantiate(paletteItemPrefab, paletteItemParent);
             i.SetColor(item.color);
 

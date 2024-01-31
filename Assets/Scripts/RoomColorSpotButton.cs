@@ -85,6 +85,8 @@ public class RoomColorSpotButton : MonoBehaviour
 
         //
         //palette item waste
+        MyPaletteItem.selected.OnUnclick();
+
         foreach (var b in all) b.Invoke("mode-0");
 
         OnUnclick();

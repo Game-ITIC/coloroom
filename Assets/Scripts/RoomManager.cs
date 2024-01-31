@@ -74,6 +74,8 @@ public class RoomManager : MonoBehaviour
     {
         //delete olds check?
 
+        if (!room.isOpen) return;
+
         foreach (RoomColorSpot spot in _spots)
         {
             var sb = Instantiate(spotButtonPrefab, spotButtonParent);

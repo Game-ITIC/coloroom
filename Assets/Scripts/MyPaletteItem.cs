@@ -35,11 +35,21 @@ public class MyPaletteItem : MonoBehaviour
 
     //added
 
-    //wasted
+    public void Waste()
+    {
+        //count--;
+    }
 
     public void OnClick()
     {
-        if (selected != null) selected.OnUnclick();
+        if (selected != null)
+        {
+            if (selected == this)
+                return;
+            else
+                selected.OnUnclick();
+        }
+
         selected = this;
 
         if (RoomColorSpotButton.selected != null)

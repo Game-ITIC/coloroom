@@ -34,12 +34,17 @@ public class RoomColorSpot : MonoBehaviour
         if (mat == null)
             mat = whiteMaterial;
             
-        SetMaterial(mat);
+        //SetMaterial(mat);
+        this.DelayedAction(0.2f, () => SetMaterial(mat));
 
         _newColorKey = colorKey;
 
         if (events != null) events.Invoke("on-spot-color-set");
         GlobalEvent.InvokeGlobal("on-any-spot-color-set");
+
+        ////
+        foreach (var mr in meshRenderers)
+            TweenAnims.ObjectPulse(mr.meshRenderer.transform);
     }
 
     public void SaveColor()
@@ -52,7 +57,7 @@ public class RoomColorSpot : MonoBehaviour
 
     public void CancelColor()
     {
-        SetColor(_colorKey);
+        if (_newColorKey != _colorKey) SetColor(_colorKey);
 
         if (events != null) events.Invoke("on-spot-color-cancel");
         GlobalEvent.InvokeGlobal("on-any-spot-color-cancel");
