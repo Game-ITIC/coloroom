@@ -54,7 +54,7 @@ public class BottleController : MonoBehaviour
             if (color0.sharedMaterial.color == color1.sharedMaterial.color && color1.sharedMaterial.color == color2.sharedMaterial.color && color2.sharedMaterial.color == color3.sharedMaterial.color)
             {
                 isFinished = true;
-                chunksArray[5].gameObject.SetActive(true);
+                Invoke("CloseBottle", 1.2f);
             }
             else
             {
@@ -245,5 +245,11 @@ public class BottleController : MonoBehaviour
         {
             obj.GetComponent<Collider>().enabled = true;
         }
+    }
+
+    void CloseBottle()
+    {
+        chunksArray[5].gameObject.SetActive(true);
+        transform.gameObject.tag = "finBottle";
     }
 }
