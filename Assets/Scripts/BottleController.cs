@@ -126,6 +126,10 @@ public class BottleController : MonoBehaviour
             } //empty bottle
             else if (isEmpty)
             {
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("bottle"))
+                {
+                    obj.GetComponent<Collider>().enabled = false;
+                }               
                 selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                 chunksArray[4].gameObject.SetActive(true);
                 chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
@@ -170,6 +174,10 @@ public class BottleController : MonoBehaviour
             {             
                 if (chunksArray[lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
+                    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("bottle"))
+                    {
+                        obj.GetComponent<Collider>().enabled = false;
+                    }
                     selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
@@ -212,7 +220,7 @@ public class BottleController : MonoBehaviour
                     else
                     {
                         Invoke("AfterWaiting", 1.5f);
-                    }                  
+                    }
                 }
                 else
                 {
@@ -223,17 +231,19 @@ public class BottleController : MonoBehaviour
                
             }
         }
-
     }
 
     public void OnPourAnimationComplete(GameObject go)
     {
        go.SetActive(false);
     }
-
     void AfterWaiting()
     {
         selected.transform.position = selected.originalPosition;
         selected = null;
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("bottle"))
+        {
+            obj.GetComponent<Collider>().enabled = true;
+        }
     }
 }

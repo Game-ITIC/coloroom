@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - color
+  - bottle
   layers:
   - Default
   - TransparentFX
