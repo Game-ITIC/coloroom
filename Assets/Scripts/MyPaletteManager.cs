@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class MyPaletteManager : MonoBehaviour
 {
+    public static MyPaletteManager Instance;
+
     [Serializable] private class Palette
     {
         [Serializable] public class Item
         {
-            public Item(ColorManager.ColorKey setColor)
+            public Item(ColorManager.ColorKey setColor, int setCount)
             {
                 color = setColor;
-                count = 1;
+                count = setCount;
             }
 
             public ColorManager.ColorKey color;
@@ -31,7 +33,7 @@ public class MyPaletteManager : MonoBehaviour
 
     private void Awake()
     {
-        //
+        Instance = this;
     }
 
     private void Start()
@@ -42,7 +44,7 @@ public class MyPaletteManager : MonoBehaviour
     private void OpenPalette()
     {
         for (int i = 0; i < paletteItemParent.childCount; i++)
-            Destroy(paletteItemParent.GetChild(i));
+            Destroy(paletteItemParent.GetChild(i).gameObject);
         ////sdelat umnee esli yest tsvet ostavit i minusovat...
 
         var p = JsonUtility.FromJson<Palette>(PlayerPrefs.GetString("my-palette-data"));
@@ -53,7 +55,7 @@ public class MyPaletteManager : MonoBehaviour
             if (item.count < 1) continue;
 
             var i = Instantiate(paletteItemPrefab, paletteItemParent);
-            i.SetColor(item.color);
+            i.Set(item.color, item.count);
 
             _items.Add(i);
         }
@@ -61,7 +63,12 @@ public class MyPaletteManager : MonoBehaviour
 
     private void SavePalette()
     {
-        //read from _items into palette
+        palette.items.Clear();
+        foreach (var i in _items)
+        {
+            if (i.GetCount() < 1) continue;
+            palette.items.Add(new Palette.Item(i.GetColor(), i.GetCount()));
+        }
 
         PlayerPrefs.SetString("my-palette-data", JsonUtility.ToJson(palette));
     }
@@ -76,6 +83,11 @@ public class MyPaletteManager : MonoBehaviour
     private void RemoveItem()
     {
         //
+    }
+
+    public void OnPaletteChange()
+    {
+        SavePalette();
     }
 
 
@@ -99,7 +111,7 @@ public class MyPaletteManager : MonoBehaviour
                 }
 
             if (!added)
-                p.items.Add(new Palette.Item(color));
+                p.items.Add(new Palette.Item(color, 1));
         }
 
         PlayerPrefs.SetString("my-palette-data", JsonUtility.ToJson(p));

@@ -46,6 +46,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colors:
   - key: 0
+    material: {fileID: 2100000, guid: d5d5670574609b84e943d6a32e8af369, type: 2}
+  - key: 1
+    material: {fileID: 2100000, guid: f25a187d090171f408bfe2c761776595, type: 2}
+  - key: 2
+    material: {fileID: 2100000, guid: 4373b296db62f384aad5c3142533c110, type: 2}
+  - key: 3
+    material: {fileID: 2100000, guid: d87ebd44619982e48868e949ae034b0b, type: 2}
+  - key: 4
+    material: {fileID: 2100000, guid: 8eaa87ceca769084f815a740642333af, type: 2}
+  - key: 5
+    material: {fileID: 2100000, guid: 8597e05e047683c46a34319f2a0b49ce, type: 2}
+  - key: 6
     material: {fileID: 2100000, guid: b8a8c834f8d56f74e89b39210c01725c, type: 2}
-  - key: 0
-    material: {fileID: 2100000, guid: b8a8c834f8d56f74e89b39210c01725c, type: 2}
+  - key: 7
+    material: {fileID: 2100000, guid: 6e36621cfe4452540bf43b5bf67aaa86, type: 2}
+  - key: 8
+    material: {fileID: 2100000, guid: e56cf95ef4486df40a1a8a3ba8524214, type: 2}
+  - key: 9
+    material: {fileID: 2100000, guid: ca054f8fac3ee0848a8bbfb6520edc66, type: 2}
+  - key: 10
+    material: {fileID: 2100000, guid: ed34e1114706a2f4ba4010f2d9f1c35b, type: 2}
+  - key: 11
+    material: {fileID: 2100000, guid: 80d31c8036da7f74d9e33b945497a1c6, type: 2}
+  - key: 12
+    material: {fileID: 2100000, guid: 25d28afac86dcff4283a4cfe82f4bd0e, type: 2}
+  - key: 13
+    material: {fileID: 2100000, guid: 19084f1e7dd40ca49a3f3b6ce7e0d638, type: 2}
+  - key: 14
+    material: {fileID: 2100000, guid: bfbff76931407404eac6916499b543f3, type: 2}
+  - key: 15
+    material: {fileID: 2100000, guid: 49016111d7bc30d48bd2a7731afe51ce, type: 2}
+  - key: 16
+    material: {fileID: 2100000, guid: 7286ed51ac610074bad53193bb9045f0, type: 2}
+  - key: 17
+    material: {fileID: 2100000, guid: d3b0265603320cb4790a67dcd1c59385, type: 2}
+  - key: 18
+    material: {fileID: 2100000, guid: df24be774e0993b4cb18f8a8b2ffdcda, type: 2}
+  - key: 19
+    material: {fileID: 2100000, guid: 5498b170c7eed774e9113baef2524932, type: 2}
+  - key: 20
+    material: {fileID: 2100000, guid: 4cac5acbec9b8724fb67df555bfb944a, type: 2}
+  - key: 21
+    material: {fileID: 2100000, guid: f9b695da60fae4540821c626c7d38185, type: 2}
+  - key: 22
+    material: {fileID: 2100000, guid: 030f25a08f9933d4ca9c5f6fa424ffed, type: 2}
+  - key: 23
+    material: {fileID: 2100000, guid: f7c01bb899b20de4ba90fc3a33909eeb, type: 2}
+  - key: 24
+    material: {fileID: 2100000, guid: a55834bea094da1419c24ba7595afac9, type: 2}
+  - key: 25
+    material: {fileID: 2100000, guid: ba557c4e13f0392439b745e5ffd21e85, type: 2}
+  - key: 26
+    material: {fileID: 2100000, guid: 863b6f1e64472d1499abbee5945ad1e2, type: 2}
+  - key: 27
+    material: {fileID: 2100000, guid: dad0f3fb37643964ead4c13e4f3fc5da, type: 2}
+  - key: 28
+    material: {fileID: 2100000, guid: 135240cc29452cb4891316ab9299f999, type: 2}
+  - key: 29
+    material: {fileID: 2100000, guid: ee191fcc061f496428a1047c94d54418, type: 2}
+  - key: 30
+    material: {fileID: 2100000, guid: d2188f5b17d9dd440ab0170b3233cb6f, type: 2}
+  - key: 31
+    material: {fileID: 2100000, guid: b29ace559faa9c5499b332dc755b5087, type: 2}
+  - key: 32
+    material: {fileID: 2100000, guid: 990089a02a7695a469b83644edc77d94, type: 2}
+  - key: 33
+    material: {fileID: 2100000, guid: ccf4c4561fdd7e249afcb0e26e446c78, type: 2}
+  - key: 34
+    material: {fileID: 2100000, guid: b80ab6639f9fa1143bac9c4930f94eb0, type: 2}
+  - key: 35
+    material: {fileID: 2100000, guid: 664ef21984ec656499a20b5b5df1b0d3, type: 2}
+  - key: 36
+    material: {fileID: 2100000, guid: d9f67bd9b5dccb349ba699ea1a2fe5d5, type: 2}
+  - key: 37
+    material: {fileID: 2100000, guid: efd67ca96cd878448995f39628f75df7, type: 2}
+  - key: 38
+    material: {fileID: 2100000, guid: 9f1ece52bbc00fa4aad0a712e5b96e01, type: 2}
+  - key: 39
+    material: {fileID: 2100000, guid: 2d4b70d3407b90f4c819ca296fcd8d14, type: 2}
+  - key: 40
+    material: {fileID: 2100000, guid: 0590c6295aeff184cb6c3434b7b7758e, type: 2}
+  - key: 41
+    material: {fileID: 2100000, guid: 689c39c73c9c3f74b9d873e07ed8e125, type: 2}
+  - key: 42
+    material: {fileID: 2100000, guid: e7861d40c7125de4ab2d62ed426467a2, type: 2}
+  - key: 43
+    material: {fileID: 2100000, guid: 9b73860c62e99804096b0765869a1f0f, type: 2}
+  - key: 44
+    material: {fileID: 2100000, guid: 72e706b2ba575c14aab7f4378558221c, type: 2}

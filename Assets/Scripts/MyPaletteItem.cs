@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MyPaletteItem : MonoBehaviour
@@ -8,7 +9,7 @@ public class MyPaletteItem : MonoBehaviour
     public static MyPaletteItem selected = null;
 
     [SerializeField] private ColorManager.ColorKey color;
-    //count //i yesli coount 0 to waste nelza
+    [SerializeField] private int count = 1;
     //timer
     //ad feature
     [Space]
@@ -21,11 +22,13 @@ public class MyPaletteItem : MonoBehaviour
         all.Add(this);
     }
 
-    public void SetColor(ColorManager.ColorKey value)
+    public void Set(ColorManager.ColorKey newColor, int newCount)
     {
-        color = value;
+        color = newColor;
 
         renderMaterial.SetMaterial(ColorManager.Instance.GetColor(color));
+
+        count = newCount;
     }
 
     public ColorManager.ColorKey GetColor()
@@ -33,11 +36,25 @@ public class MyPaletteItem : MonoBehaviour
         return color;
     }
 
+    public int GetCount()
+    {
+        return count;
+    }
+
     //added
 
     public void Waste()
     {
-        //count--;
+        count--;
+
+        OnUnclick();
+
+        if (count <= 0)
+        {
+            Invoke("on-waste");
+
+            MyPaletteManager.Instance.OnPaletteChange();
+        }
     }
 
     public void OnClick()

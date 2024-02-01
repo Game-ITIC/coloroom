@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Progressbar : MonoBehaviour
     [Space]
     [SerializeField] private GlobalEvent events;
 
+    private float _value;
+
     private void Awake()
     {
         if (main) Main = this;
@@ -19,10 +22,12 @@ public class Progressbar : MonoBehaviour
 
     public void SetValue(float val)
     {
-        //
-        //anim
-        rect.localScale = new Vector3(val, 1f, 1f);
+        if (val == _value) return;
 
-        events.Invoke("on-value-change");
+        _value = val;
+        
+        DOVirtual.Float(rect.localScale.x, _value, 1f, (x) => { rect.localScale = new Vector3(x, 1f, 1f); }).SetEase(Ease.OutSine).Play();
+
+        if (events != null) events.Invoke("on-value-change");
     }
 }
