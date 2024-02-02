@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private GameObject _levelObject = null;
     private bool levelComp = false;
     AudioSource aud;
+    public GameObject winWindow;
 
     private void Awake()
     {
@@ -59,11 +60,13 @@ public class GameManager : MonoBehaviour
         {
             obj.GetComponent<Collider>().enabled = false;
         }
-        Invoke("LevelNext", 3.0f);
+        winWindow.SetActive(true);
+        //Invoke("LevelNext", 3.0f);
     }
 
     private void LevelStart(int id)
     {
+        winWindow.SetActive(false);
         levelComp = false;
         if (_levelObject != null) Destroy(_levelObject);
 
