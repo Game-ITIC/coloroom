@@ -549,7 +549,8 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 744649444130775061, guid: e812737f2fdbb684b8e1ba549be82cdb, type: 3}
   - {fileID: 6675423144298031645, guid: 57088950ba30bdd4ca806be320cf51b3, type: 3}
-  - {fileID: 744649444130775061, guid: e812737f2fdbb684b8e1ba549be82cdb, type: 3}
+  - {fileID: 4507884003956698128, guid: 2d234e65b138cad49a3e76773c8ef22d, type: 3}
+  - {fileID: 6897358968251602186, guid: eb069cdebf481fe49b975e358764c606, type: 3}
   title: {fileID: 1968452418}
 --- !u!114 &182682252
 MonoBehaviour:
@@ -1233,6 +1234,18 @@ MonoBehaviour:
     - color: 29
       count: 1
     - color: 37
+      count: 3
+    - color: 24
+      count: 4
+    - color: 26
+      count: 5
+    - color: 10
+      count: 1
+    - color: 34
+      count: 1
+    - color: 40
+      count: 1
+    - color: 23
       count: 1
   paletteItemPrefab: {fileID: 960043014245140566, guid: 61592eaf9dfe7be42af617e1e693f960, type: 3}
   paletteItemParent: {fileID: 2036069150}
@@ -1868,7 +1881,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 22.041927, y: 26.883678}
-  m_SizeDelta: {x: 9.2440605, y: 20}
+  m_SizeDelta: {x: 9.238666, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &840928945
 MonoBehaviour:
