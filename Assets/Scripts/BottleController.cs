@@ -54,7 +54,7 @@ public class BottleController : MonoBehaviour
             if (color0.sharedMaterial.color == color1.sharedMaterial.color && color1.sharedMaterial.color == color2.sharedMaterial.color && color2.sharedMaterial.color == color3.sharedMaterial.color)
             {
                 isFinished = true;
-                chunksArray[5].gameObject.SetActive(true);
+                Invoke("CloseBottle", 1.2f);
             }
             else
             {
@@ -140,22 +140,18 @@ public class BottleController : MonoBehaviour
                 //second consequent
                 if (selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
-                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                     chunksArray[3].gameObject.SetActive(true);
                     chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                     selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                     selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
-                    selected.anima.SetTrigger("isPouring");
 
                     //third consequent
                     if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                     {
-                        selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                         chunksArray[2].gameObject.SetActive(true);
                         chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                         selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                         selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
-                        selected.anima.SetTrigger("isPouring");
                         Invoke("AfterWaiting", 1.5f);
                     }
                     else
@@ -186,36 +182,26 @@ public class BottleController : MonoBehaviour
                     selected.anima.SetTrigger("isPouring");
                     
                     //second consequent
-                    if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                    if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
                     {
-                        if (chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
-                        {
-                            selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                             chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
                             chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                             selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                             selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
-                            selected.anima.SetTrigger("isPouring");
 
-                            //third cinsequent
-                            if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                            //third consequent
+                            if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
                             {
-                                if (chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
-                                {
-                                    selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                                     chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
                                     chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                                     selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                                     selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
-                                    selected.anima.SetTrigger("isPouring");
                                     Invoke("AfterWaiting", 1.5f);
-                                }
                             }
                             else
                             {
                                 Invoke("AfterWaiting", 1.5f);
                             }
-                        }
                     }
                     else
                     {
@@ -245,5 +231,13 @@ public class BottleController : MonoBehaviour
         {
             obj.GetComponent<Collider>().enabled = true;
         }
+
+        GameManager.instance.CheckWin();
+    }
+
+    void CloseBottle()
+    {
+        chunksArray[5].gameObject.SetActive(true);
+        transform.gameObject.tag = "finBottle";
     }
 }
