@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //last puzzle (i vnutri sam save svoy state perezapisivat odno mesto vse)
-    //last room
-    //+saving all theese
-    //last scene was room or puzzle
+    public static GameManager instance;
+    
     [Serializable]
     public class Level
     {
@@ -27,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         if (!PlayerPrefs.HasKey("level-id")) PlayerPrefs.SetInt("level-id", _levelId);
 
         if (!PlayerPrefs.HasKey("home-tutorial-watched")) PlayerPrefs.SetInt("home-tutorial-watched", 0);
@@ -38,12 +38,17 @@ public class GameManager : MonoBehaviour
         LevelStart(PlayerPrefs.GetInt("level-id"));
     }
 
-    private void Update()
+    public void CheckWin()
     {
         if (GameObject.FindGameObjectsWithTag("finBottle").Length == levels[_levelId].bottles)
         {
             if (!levelComp)
             {
+                Debug.Log(GameObject.FindGameObjectsWithTag("finBottle").Length);
+                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("finBottle"))
+                {
+                    Debug.Log(obj);
+                }
                 levelComp = true;
                 Invoke("LevelWin", 0.5f);
                 //open view with button 
@@ -74,7 +79,7 @@ public class GameManager : MonoBehaviour
 
         _levelObject = Instantiate(levels[_levelId].levelPrefab, null);
 
-        GlobalEvent.InvokeGlobal("on-level-start");
+        //GlobalEvent.InvokeGlobal("on-level-start");
     }
 
     public void LevelRestart()

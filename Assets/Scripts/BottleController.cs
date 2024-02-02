@@ -231,6 +231,8 @@ public class BottleController : MonoBehaviour
         {
             obj.GetComponent<Collider>().enabled = true;
         }
+
+        GameManager.instance.CheckWin();
     }
 
     void CloseBottle()
