@@ -31,8 +31,13 @@ public class RoomSceneManager : MonoBehaviour
         if (title != null) title.text = "Room " + (_levelId + 1);
 
         _levelObject = Instantiate(roomPrefabs[_levelId]);
+    }
 
-        GlobalEvent.InvokeGlobal("on-level-open");
+    public void OnLevelFinish()
+    {
+        int nextId = (_levelId + 1) % roomPrefabs.Length;
+
+        PlayerPrefs.SetInt("room-level-id", nextId);
     }
 
     public void NextLevel()
@@ -41,4 +46,6 @@ public class RoomSceneManager : MonoBehaviour
 
         OpenLevel(nextId);
     }
+
+    
 }
