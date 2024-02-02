@@ -44,16 +44,8 @@ public class GameManager : MonoBehaviour
         {
             if (!levelComp)
             {
-                Debug.Log(GameObject.FindGameObjectsWithTag("finBottle").Length);
-                foreach (GameObject obj in GameObject.FindGameObjectsWithTag("finBottle"))
-                {
-                    Debug.Log(obj);
-                }
                 levelComp = true;
                 Invoke("LevelWin", 0.5f);
-                //open view with button 
-                //add coins and colors
-                //on button - next level
             }
         }
     }
