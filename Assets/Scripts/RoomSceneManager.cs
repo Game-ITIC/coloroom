@@ -24,7 +24,7 @@ public class RoomSceneManager : MonoBehaviour
     private void OpenLevel(int id)
     {
         if (_levelObject != null)
-            Destroy(_levelObject);
+            Destroy(_levelObject.gameObject);
 
         _levelId = id;
 

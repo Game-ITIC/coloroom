@@ -84,6 +84,8 @@ public class RoomManager : MonoBehaviour
     {
         if (_progress < 1f) return;
 
+        PlayerPrefs.DeleteKey("my-room-data-" + name);
+
         this.DelayedAction(2f, () => GlobalEvent.InvokeGlobal("on-room-finish"));
     }
 
