@@ -11,11 +11,6 @@ public class RoomManager : MonoBehaviour
 
     [SerializeField] string roomId = "room-1";
     [SerializeField] bool isOpen = false;
-    [Space]
-    [SerializeField] private RoomColorSpotButton spotButtonPrefab;
-    [SerializeField] private RectTransform spotButtonParent;
-    [Space]
-    [SerializeField] private GlobalEvent events;
 
     [Serializable]
     private class Room
@@ -27,6 +22,7 @@ public class RoomManager : MonoBehaviour
     private Room room;
     
     private RoomColorSpot[] _spots;
+    private float _progress = 0f;
 
     private void Awake()
     {
@@ -40,7 +36,7 @@ public class RoomManager : MonoBehaviour
     {
         LoadRoom();
 
-        StartRoom();/////////////nado vizivat i kameru dvigat na nego
+        StartRoom();
     }
 
     private void LoadRoom()
@@ -50,8 +46,7 @@ public class RoomManager : MonoBehaviour
 
         if (!room.isOpen)
         {
-            if (events != null) events.Invoke("on-room-lock");
-            GlobalEvent.InvokeGlobal("on-any-room-lock");
+            GlobalEvent.InvokeGlobal("on-room-lock");
 
             return;
         }
@@ -62,8 +57,6 @@ public class RoomManager : MonoBehaviour
 
             _spots[i].SetInitColor(room.spotColors[i]);
         }
-
-        if (events != null) events.Invoke("on-room-load");
 
         UpdateProgressbar();
     }
@@ -86,34 +79,22 @@ public class RoomManager : MonoBehaviour
 
     private void StartRoom()
     {
-        Active = this;
-
-        CreateSpotButtons();
-    }
-
-    private void CreateSpotButtons()
-    {
-        //delete olds check?
-
         if (!room.isOpen) return;
 
-        foreach (RoomColorSpot spot in _spots)
-        {
-            var sb = Instantiate(spotButtonPrefab, spotButtonParent);
-            sb.SetColorSpot(spot);
-            spot.SetColorSpotButton(sb);
+        Active = this;
 
-            sb.GetComponent<UIElementOnObject>().SetTarget(spot.transform);
-        }
+        RoomColorSpotButtonManager.Instance.Generate(_spots);
+    }
+
+    private void UpdateProgress()
+    {
+
     }
 
     private void UpdateProgressbar()
     {
         int counterMax = _spots.Length;
         int counter = 0;
-
-        foreach (var s in _spots)
-            Debug.Log(s.GetColor()) ;
 
         foreach (var s in _spots)
             if (s.GetColor() != ColorManager.ColorKey.none) counter++;

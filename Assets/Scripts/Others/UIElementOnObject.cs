@@ -6,6 +6,7 @@ using UnityEngine;
 public class UIElementOnObject : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    [SerializeField] private string findTargetByKey = "";
 
     private RectTransform _rt;
     private Canvas _canvas;
@@ -20,6 +21,12 @@ public class UIElementOnObject : MonoBehaviour
         _c = Camera.main;
     }
 
+    private void Start()
+    {
+        if (findTargetByKey != "")
+            FindTargetByKey(findTargetByKey);
+    }
+
     private void LateUpdate()
     {
         var vpos = _c.WorldToScreenPoint(target.position);
@@ -31,5 +38,15 @@ public class UIElementOnObject : MonoBehaviour
     public void SetTarget(Transform targ)
     {
         target = targ;
+    }
+
+    private void FindTargetByKey(string key)
+    {
+        foreach (var targ in UIElementOnObjectTarget.all)
+            if (targ.GetKey() == key)
+            {
+                target = targ.transform;
+                break;
+            }
     }
 }

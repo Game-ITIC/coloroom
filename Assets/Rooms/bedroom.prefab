@@ -632,15 +632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.35
+      value: 9.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.99
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_LocalRotation.w
@@ -885,10 +885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e6c82539b4002489dae0af0c0f9346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomId: room-1
   isOpen: 1
-  spotButtonPrefab: {fileID: 5277986426030386084, guid: 56691a79d1144bc49b2d20f6e7fe1c8a, type: 3}
-  spotButtonParent: {fileID: 0}
-  events: {fileID: 0}
 --- !u!23 &6029642699226465600 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 959529426404563638, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
