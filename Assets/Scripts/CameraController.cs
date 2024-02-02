@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    //[SerializeField] 
-    public void SetPosition(Vector3 val)
-    {
+    //[SerializeField] private 
+    
+    //public void SetPosition(Vector3 val)
+    //{
 
-    }
+    //}
 }

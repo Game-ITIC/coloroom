@@ -81,11 +81,16 @@ public class RoomColorSpotButton : MonoBehaviour
 
     public void OnConfirm()
     {
-        colorSpot.SaveColor();
+        if (MyPaletteItem.selected.GetColor() == colorSpot.GetColor())
+        {
+            MyPaletteItem.selected.OnUnclick();
+        }
+        else
+        {
+            colorSpot.SaveColor();
 
-        //
-        //palette item waste
-        MyPaletteItem.selected.OnUnclick();
+            MyPaletteItem.selected.Waste();
+        }
 
         foreach (var b in all) b.Invoke("mode-0");
 
