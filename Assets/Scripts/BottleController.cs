@@ -17,6 +17,7 @@ public class BottleController : MonoBehaviour
     int lastActiveIndex;
     float upDock = 0.5f, rightDock = 0.2f;
     public Vector3 originalPosition;
+    //Vector3[] origPosChunk;
 
 
     void Start()
@@ -35,6 +36,7 @@ public class BottleController : MonoBehaviour
         aud = GetComponent<AudioSource>();
 
         originalPosition = transform.position;
+        //origPosChunk = new Vector3[6];
     }
 
 
@@ -100,6 +102,13 @@ public class BottleController : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        //original position of each chunk
+        //origPosChunk[0] = chunksArray[0].position;
+        //origPosChunk[1] = chunksArray[1].position;
+        //origPosChunk[2] = chunksArray[2].position;
+        //origPosChunk[3] = chunksArray[3].position;
+        //origPosChunk[4] = chunksArray[4].position;
+
 
         //selecting a bottle
         if (!isFinished && selected==null)
@@ -152,15 +161,21 @@ public class BottleController : MonoBehaviour
                         chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                         selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                         selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                        //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
+                        //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
+                        //selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
                         Invoke("AfterWaiting", 1.5f);
                     }
                     else
                     {
+                        //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding");
+                        //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
                         Invoke("AfterWaiting", 1.5f);
                     }
                 }
                 else
                 {
+                    //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                     Invoke("AfterWaiting", 1.5f);
                 }
                 
@@ -196,18 +211,24 @@ public class BottleController : MonoBehaviour
                                     chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                                     selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
                                     selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                                    //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
+                                    //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
+                                    //selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
                                     Invoke("AfterWaiting", 1.5f);
                             }
                             else
                             {
+                                //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding");
+                                //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
                                 Invoke("AfterWaiting", 1.5f);
                             }
                     }
                     else
                     {
+                        //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                         Invoke("AfterWaiting", 1.5f);
                     }
-                }
+                } //if another color (no pouring)
                 else
                 {
                     selected.anima.SetTrigger("isBlocked");
@@ -225,6 +246,10 @@ public class BottleController : MonoBehaviour
     }
     void AfterWaiting()
     {
+        //for(int i=1; i<5; i++)
+        //{
+        //    chunksArray[i].position = origPosChunk[i];
+        //}
         selected.transform.position = selected.originalPosition;
         selected = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("bottle"))

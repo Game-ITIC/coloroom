@@ -760,8 +760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - levelPrefab: {fileID: 8637299053150444163, guid: 72c25abbffc33614896a4163222d0f4a, type: 3}
-    bottles: 2
+  - levelPrefab: {fileID: 8637299053150444163, guid: e1cd4da4bd89bee448d6444a183939a0, type: 3}
+    bottles: 7
     coins: 0
   - levelPrefab: {fileID: 8637299053150444163, guid: 3933d1a30a2bdae498e3fa197a0079fb, type: 3}
     bottles: 3
@@ -789,6 +789,27 @@ MonoBehaviour:
     coins: 0
   - levelPrefab: {fileID: 8637299053150444163, guid: 4f4864deef664bc41945517b2c3be474, type: 3}
     bottles: 6
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: 0bdcb87515510ee45b158586c1030ca5, type: 3}
+    bottles: 6
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: 2c0c86c79d1317a4f826ada3c847a92f, type: 3}
+    bottles: 6
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: 18d96e11fa26def49b9c381f8b6ba972, type: 3}
+    bottles: 6
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: de95a9a799cec764b86e0c8d942a9f8e, type: 3}
+    bottles: 7
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: df4fbe43b31e39244abf303320a68e0e, type: 3}
+    bottles: 7
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: 7f07d93bd36d81240bb6d1ce2a201997, type: 3}
+    bottles: 7
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: a6fd6abb82679924884d73723b9eaf91, type: 3}
+    bottles: 7
     coins: 0
   winWindow: {fileID: 1154051816}
 --- !u!4 &1248696082

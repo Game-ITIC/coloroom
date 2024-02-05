@@ -427,7 +427,7 @@ Animator:
   m_GameObject: {fileID: 5335761345124000671}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6c66fa491707bf449547e1812312f17, type: 2}
+  m_Controller: {fileID: 9100000, guid: 141a8e1900a529e40b4f8c494de57f62, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -551,7 +551,7 @@ Animator:
   m_GameObject: {fileID: 5723253323610172383}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6c66fa491707bf449547e1812312f17, type: 2}
+  m_Controller: {fileID: 9100000, guid: f8bf204a558587346a00b3e0b5342dfc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -882,7 +882,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d87ebd44619982e48868e949ae034b0b, type: 2}
+  - {fileID: 2100000, guid: 7286ed51ac610074bad53193bb9045f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1048,7 +1048,7 @@ Animator:
   m_GameObject: {fileID: 7124313657951319359}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6c66fa491707bf449547e1812312f17, type: 2}
+  m_Controller: {fileID: 9100000, guid: b7fc4ccc85cd2e9428e0f120675232ca, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
