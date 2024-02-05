@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - levelPrefab: {fileID: 8637299053150444163, guid: 7f07d93bd36d81240bb6d1ce2a201997, type: 3}
+  - levelPrefab: {fileID: 8637299053150444163, guid: e1cd4da4bd89bee448d6444a183939a0, type: 3}
     bottles: 7
     coins: 0
   - levelPrefab: {fileID: 8637299053150444163, guid: 3933d1a30a2bdae498e3fa197a0079fb, type: 3}
@@ -806,6 +806,9 @@ MonoBehaviour:
     bottles: 7
     coins: 0
   - levelPrefab: {fileID: 8637299053150444163, guid: 7f07d93bd36d81240bb6d1ce2a201997, type: 3}
+    bottles: 7
+    coins: 0
+  - levelPrefab: {fileID: 8637299053150444163, guid: a6fd6abb82679924884d73723b9eaf91, type: 3}
     bottles: 7
     coins: 0
   winWindow: {fileID: 1154051816}
