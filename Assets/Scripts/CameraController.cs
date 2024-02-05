@@ -21,6 +21,7 @@ public class CameraController : MonoBehaviour
         _c = Camera.main;
 
         _ctAngles = cameraTarget.localEulerAngles;
+        if (_ctAngles.y > 180f) _ctAngles.y -= 360f;
     }
 
     private void Update()

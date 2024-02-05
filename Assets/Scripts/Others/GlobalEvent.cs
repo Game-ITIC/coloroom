@@ -34,7 +34,7 @@ public class GlobalEvent : MonoBehaviour
         foreach (var e in events)
             if (e.globalKey != "" && e.globalKey == key)
             {
-                if (gameObject.activeInHierarchy)
+                if (e.delay > 0 && gameObject.activeInHierarchy)
                 {
                     if (e.delayedAction != null) StopCoroutine(e.delayedAction);
 

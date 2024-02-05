@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class MyPaletteItem : MonoBehaviour
     //ad feature
     [Space]
     [SerializeField] private MeshRendererMaterials renderMaterial;
+    [SerializeField] private TextMeshProUGUI countText;
     [Space]
     [SerializeField] private GlobalEvent events;
 
@@ -29,6 +31,8 @@ public class MyPaletteItem : MonoBehaviour
         renderMaterial.SetMaterial(ColorManager.Instance.GetColor(color));
 
         count = newCount;
+
+        countText.text = count.ToString();
     }
 
     public ColorManager.ColorKey GetColor()
@@ -46,6 +50,8 @@ public class MyPaletteItem : MonoBehaviour
     public void Waste()
     {
         count--;
+
+        countText.text = count.ToString();
 
         OnUnclick();
 

@@ -11996,6 +11996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e6c82539b4002489dae0af0c0f9346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomName: Wash room
 --- !u!1 &2653443508678107295
 GameObject:
   m_ObjectHideFlags: 0
