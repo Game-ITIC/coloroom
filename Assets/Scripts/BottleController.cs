@@ -141,8 +141,8 @@ public class BottleController : MonoBehaviour
                 }               
                 selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                 chunksArray[4].gameObject.SetActive(true);
-                chunksArray[4].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                chunksArray[4].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                 selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                 selected.anima.SetTrigger("isPouring");
 
@@ -150,16 +150,16 @@ public class BottleController : MonoBehaviour
                 if (selected.chunksArray[selected.lastActiveIndex+1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                 {
                     chunksArray[3].gameObject.SetActive(true);
-                    chunksArray[3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    chunksArray[3].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                    selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                     selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
 
                     //third consequent
                     if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
                     {
                         chunksArray[2].gameObject.SetActive(true);
-                        chunksArray[2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                        selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                        chunksArray[2].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                        selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                         selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
                         //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
                         //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
@@ -191,8 +191,8 @@ public class BottleController : MonoBehaviour
                     }
                     selected.transform.position = new Vector3(chunksArray[7].transform.position.x + rightDock, chunksArray[7].transform.position.y + upDock, chunksArray[7].transform.position.z);
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
-                    chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                    chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                    selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                     selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
                     selected.anima.SetTrigger("isPouring");
                     
@@ -200,16 +200,16 @@ public class BottleController : MonoBehaviour
                     if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
                     {
                             chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
-                            chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                            selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                            chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                            selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                             selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
 
                             //third consequent
                             if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
                             {
                                     chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
-                                    chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
-                                    selected.chunksArray[8].GetComponent<Renderer>().material = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().material;
+                                    chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
+                                    selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                                     selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
                                     //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
                                     //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
