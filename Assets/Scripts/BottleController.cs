@@ -263,6 +263,7 @@ public class BottleController : MonoBehaviour
     void CloseBottle()
     {
         chunksArray[5].gameObject.SetActive(true);
+        chunksArray[9].gameObject.SetActive(true);
         transform.gameObject.tag = "finBottle";
     }
 }

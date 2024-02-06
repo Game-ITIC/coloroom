@@ -36179,8 +36179,6 @@ MonoBehaviour:
   meshRenderers:
   - meshRenderer: {fileID: 1336801239017741586}
     materialIndices: 00000000
-  - meshRenderer: {fileID: 8962833843848800141}
-    materialIndices: 00000000
   whiteMaterial: {fileID: 2100000, guid: 65208b68e227af24999f91bc0f4d62e6, type: 2}
   events: {fileID: 3310973062724229889}
 --- !u!114 &3310973062724229889
@@ -36219,13 +36217,13 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8231493663901139881}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 8962833843848800141}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_material
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2100000, guid: f25a187d090171f408bfe2c761776595, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -82947,8 +82945,6 @@ MonoBehaviour:
   meshRenderers:
   - meshRenderer: {fileID: 6849713286050395367}
     materialIndices: 00000000
-  - meshRenderer: {fileID: 4583479070161538947}
-    materialIndices: 00000000
   whiteMaterial: {fileID: 2100000, guid: 65208b68e227af24999f91bc0f4d62e6, type: 2}
   events: {fileID: 8833110653282608286}
 --- !u!114 &8833110653282608286
@@ -82987,13 +82983,13 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8231493663901139881}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 4583479070161538947}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_material
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2100000, guid: f25a187d090171f408bfe2c761776595, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -93776,8 +93772,6 @@ MonoBehaviour:
   meshRenderers:
   - meshRenderer: {fileID: 5564044018263299114}
     materialIndices: 00000000
-  - meshRenderer: {fileID: 5646645065721928655}
-    materialIndices: 00000000
   whiteMaterial: {fileID: 2100000, guid: 65208b68e227af24999f91bc0f4d62e6, type: 2}
   events: {fileID: 7370857857582001325}
 --- !u!114 &7370857857582001325
@@ -93816,13 +93810,13 @@ MonoBehaviour:
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8231493663901139881}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5646645065721928655}
+          m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+          m_MethodName: set_material
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2100000, guid: f25a187d090171f408bfe2c761776595, type: 2}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
