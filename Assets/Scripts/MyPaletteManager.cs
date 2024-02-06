@@ -93,8 +93,6 @@ public class MyPaletteManager : MonoBehaviour
 
     public static void AddColorsStatic(ColorManager.ColorKey[] colors)
     {
-        Debug.Log(colors.Length);
-
         Palette p = JsonUtility.FromJson<Palette>(PlayerPrefs.GetString("my-palette-data"));
         if (p == null) p = new Palette();
 
@@ -115,8 +113,6 @@ public class MyPaletteManager : MonoBehaviour
             if (!added)
                 p.items.Add(new Palette.Item(color, 1));
         }
-
-        Debug.Log(p.items.Count);
 
         PlayerPrefs.SetString("my-palette-data", JsonUtility.ToJson(p));
     }

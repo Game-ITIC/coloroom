@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static ColorManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     private bool levelComp = false;
     AudioSource aud;
     public GameObject winWindow;
+
+    [SerializeField] MeshRendererMaterialsObject[] winBottles;
 
     private void Awake()
     {
@@ -46,6 +49,8 @@ public class GameManager : MonoBehaviour
             {
                 levelComp = true;
                 Invoke("LevelWin", 0.5f);
+
+                SaveLevel();
 
                 SaveBottles();
             }
@@ -79,6 +84,24 @@ public class GameManager : MonoBehaviour
         }
         winWindow.SetActive(true);
         //Invoke("LevelNext", 3.0f);
+
+        ShowBottles();
+    }
+
+    private void ShowBottles()
+    {
+        foreach (var b in winBottles)
+            b.gameObject.SetActive(false);
+
+        var fbs = GameObject.FindGameObjectsWithTag("finBottle");
+
+        for (int i = 0; i < fbs.Length; i++)
+        {
+            var mat = fbs[i].GetComponent<BottleController>().chunksArray[1].GetComponent<Renderer>().sharedMaterial;
+
+            winBottles[i].SetMaterial(mat);
+            winBottles[i].gameObject.SetActive(true);
+        }
     }
 
     private void LevelStart(int id)

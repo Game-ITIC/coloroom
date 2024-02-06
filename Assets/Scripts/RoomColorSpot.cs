@@ -37,6 +37,9 @@ public class RoomColorSpot : MonoBehaviour
 
         SetMaterial(mat);
 
+        if (colorKey != ColorManager.ColorKey.none)
+            if (events != null) events.Invoke("on-spot-color-set");
+
         _newColorKey = colorKey;
         _colorKey = colorKey;
     }

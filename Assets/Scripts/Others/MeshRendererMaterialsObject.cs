@@ -20,3 +20,13 @@ public class MeshRendererMaterials
         meshRenderer.SetSharedMaterials(mats);
     }
 }
+
+public class MeshRendererMaterialsObject: MonoBehaviour
+{
+    public MeshRendererMaterials materials;
+
+    public void SetMaterial(Material mat)
+    {
+        if (materials != null) materials.SetMaterial(mat);
+    }
+}
