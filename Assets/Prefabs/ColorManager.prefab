@@ -61,8 +61,6 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: b8a8c834f8d56f74e89b39210c01725c, type: 2}
   - key: 8
     material: {fileID: 2100000, guid: 6e36621cfe4452540bf43b5bf67aaa86, type: 2}
-  - key: 8
-    material: {fileID: 2100000, guid: 6e36621cfe4452540bf43b5bf67aaa86, type: 2}
   - key: 9
     material: {fileID: 2100000, guid: e56cf95ef4486df40a1a8a3ba8524214, type: 2}
   - key: 10
