@@ -30,4 +30,12 @@ public class ColorManager : MonoBehaviour
 
         return null;
     }
+
+    public ColorKey FindColorKey(Material mat)
+    {
+        foreach (var c in colors)
+            if (c.material == mat) return c.key;
+
+        return ColorKey.none;
+    }
 }

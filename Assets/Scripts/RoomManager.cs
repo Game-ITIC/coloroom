@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-//using static UnityEditor.Progress;
 
 public class RoomManager : MonoBehaviour
 {
@@ -14,6 +13,9 @@ public class RoomManager : MonoBehaviour
     {
         public ColorManager.ColorKey[] spotColors = {};
     }
+
+    [SerializeField] private string roomName = "Living room";
+    //[SerializeField] private int coins = 100;
 
     private Room room;
     
@@ -84,6 +86,8 @@ public class RoomManager : MonoBehaviour
     {
         if (_progress < 1f) return;
 
+        PlayerPrefs.DeleteKey("my-room-data-" + name);
+
         this.DelayedAction(2f, () => GlobalEvent.InvokeGlobal("on-room-finish"));
     }
 
@@ -95,5 +99,10 @@ public class RoomManager : MonoBehaviour
         SaveRoom();
 
         CheckFinish();
+    }
+
+    public string GetRoomName()
+    {
+        return roomName;
     }
 }

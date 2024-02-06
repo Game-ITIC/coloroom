@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,7 +26,7 @@ public class GlobalEvent : MonoBehaviour
 
     public static void InvokeGlobal(string key)
     {
-        foreach (var ge in _all) ge.Invoke(key);
+        foreach (var ge in _all.ToList()) ge.Invoke(key);
     }
 
     public void Invoke(string key)
@@ -33,7 +34,7 @@ public class GlobalEvent : MonoBehaviour
         foreach (var e in events)
             if (e.globalKey != "" && e.globalKey == key)
             {
-                if (gameObject.activeInHierarchy)
+                if (e.delay > 0 && gameObject.activeInHierarchy)
                 {
                     if (e.delayedAction != null) StopCoroutine(e.delayedAction);
 

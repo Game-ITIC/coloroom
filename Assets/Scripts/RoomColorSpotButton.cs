@@ -19,6 +19,18 @@ public class RoomColorSpotButton : MonoBehaviour
     private void Start()
     {
         Invoke("mode-0");
+
+        if (colorSpot.GetColor() != ColorManager.ColorKey.none)
+        {
+            Invoke("hide");
+
+            all.Remove(this);
+        }
+    }
+
+        private void OnDestroy()
+    {
+        if (all.Contains(this)) all.Remove(this);
     }
 
     public void SetColorSpot(RoomColorSpot value)
@@ -95,6 +107,10 @@ public class RoomColorSpotButton : MonoBehaviour
         foreach (var b in all) b.Invoke("mode-0");
 
         OnUnclick();
+
+        Invoke("hide");
+
+        all.Remove(this);
     }
 
     public void Invoke(string key)

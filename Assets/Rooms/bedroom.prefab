@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: -7870538426898647255, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8eaa87ceca769084f815a740642333af, type: 2}
+      objectReference: {fileID: 2100000, guid: df60c958c09176947bd4c853aae02583, type: 2}
     - target: {fileID: -6874584590210671055, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.92147195
@@ -743,9 +743,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3524397768362494659}
-    - targetCorrespondingSourceObject: {fileID: -639547368592949753, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3833192048969992366}
   m_SourcePrefab: {fileID: 100100000, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
 --- !u!4 &3903158680853144047 stripped
 Transform:
@@ -790,29 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd8008b9ea2f724ab2519ffe0e0ce85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5097978364916774915 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -639547368592949753, guid: dfea147bd8fb0c243bfc580e32f6822b, type: 3}
-  m_PrefabInstance: {fileID: 3575989352100431364}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3833192048969992366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5097978364916774915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 0.2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &4447083350015122365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,7 +866,7 @@ PrefabInstance:
     - target: {fileID: -7870538426898647255, guid: b0571efadf82f6246abce9fb1d537164, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8eaa87ceca769084f815a740642333af, type: 2}
+      objectReference: {fileID: 2100000, guid: df60c958c09176947bd4c853aae02583, type: 2}
     - target: {fileID: -6874584590210671055, guid: b0571efadf82f6246abce9fb1d537164, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9812846
@@ -1230,9 +1204,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -639547368592949753, guid: b0571efadf82f6246abce9fb1d537164, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6828927477171386586}
-    - targetCorrespondingSourceObject: {fileID: -639547368592949753, guid: b0571efadf82f6246abce9fb1d537164, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6476306548988453848}
   m_SourcePrefab: {fileID: 100100000, guid: b0571efadf82f6246abce9fb1d537164, type: 3}
 --- !u!1 &3564141085996984044 stripped
 GameObject:
@@ -1303,24 +1274,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6476306548988453848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5379806698121700794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 0.2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &4792135545272185324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1965,6 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e6c82539b4002489dae0af0c0f9346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomName: Bedroom
 --- !u!23 &6029642699226465600 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 959529426404563638, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}

@@ -70,6 +70,9 @@ public class RoomColorSpot : MonoBehaviour
 
         if (events != null) events.Invoke("on-spot-color-save");
         GlobalEvent.InvokeGlobal("on-any-spot-color-save");
+
+        foreach (var mr in meshRenderers)
+            TweenAnims.ObjectPulseOut(mr.meshRenderer.transform);
     }
 
     public void CancelColor()

@@ -46,8 +46,28 @@ public class GameManager : MonoBehaviour
             {
                 levelComp = true;
                 Invoke("LevelWin", 0.5f);
+
+                SaveBottles();
             }
         }
+    }
+
+    private void SaveBottles()
+    {
+        List<ColorManager.ColorKey> colorKeys = new List<ColorManager.ColorKey>();
+
+        foreach (GameObject fb in GameObject.FindGameObjectsWithTag("finBottle"))
+        {
+            var mat = fb.GetComponent<BottleController>().chunksArray[1].GetComponent<Renderer>().sharedMaterial;
+
+            ColorManager.ColorKey key = ColorManager.Instance.FindColorKey(mat);
+
+            if (key == ColorManager.ColorKey.none) continue;
+
+            colorKeys.Add(key);
+        }
+
+        MyPaletteManager.AddColorsStatic(colorKeys.ToArray());
     }
 
     private void LevelWin()
