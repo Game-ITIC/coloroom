@@ -12,6 +12,7 @@ public class RoomSceneManager : MonoBehaviour
 
     private int _levelId = 0;
     private RoomManager _levelObject;
+    AudioSource aud;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class RoomSceneManager : MonoBehaviour
     private void Start()
     {
         OpenLevel(PlayerPrefs.GetInt("room-level-id"));
+        aud = GetComponent<AudioSource>();
     }
 
     private void OpenLevel(int id)
@@ -49,6 +51,7 @@ public class RoomSceneManager : MonoBehaviour
     public void OnLevelFinish()
     {
         int nextId = (_levelId + 1) % roomPrefabs.Length;
+        aud.Play();
 
         PlayerPrefs.SetInt("room-level-id", nextId);
     }
