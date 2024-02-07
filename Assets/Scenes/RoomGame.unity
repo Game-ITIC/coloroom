@@ -1616,37 +1616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   palette:
     items:
-    - color: 9
+    - color: 3
       count: 1
-    - color: 2
-      count: 1
-    - color: 7
-      count: 1
-    - color: 33
-      count: 1
-    - color: 43
-      count: 1
-    - color: 45
-      count: 1
-    - color: 8
-      count: 1
-    - color: 44
-      count: 1
-    - color: 29
-      count: 1
-    - color: 37
-      count: 3
-    - color: 24
-      count: 4
-    - color: 26
-      count: 10
-    - color: 10
-      count: 1
-    - color: 34
-      count: 1
-    - color: 40
-      count: 1
-    - color: 23
+    - color: 4
       count: 1
   paletteItemPrefab: {fileID: 960043014245140566, guid: 61592eaf9dfe7be42af617e1e693f960, type: 3}
   paletteItemParent: {fileID: 2036069150}
