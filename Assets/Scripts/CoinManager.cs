@@ -6,12 +6,16 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+    public static CoinManager Instance;
+
     [SerializeField] private TextMeshProUGUI coinText;
 
     private int _coins = 0;
 
     private void Awake()
     {
+        Instance = this;
+
         if (!PlayerPrefs.HasKey("coin-count")) PlayerPrefs.SetInt("coin-count", 0);
     }
 
@@ -32,5 +36,10 @@ public class CoinManager : MonoBehaviour
         DOVirtual.Int(_coins, value, 1f, (val) => { coinText.text = val.ToString(); });
 
         _coins = value;
+    }
+
+    public void AddCoins(int value)
+    {
+        SetCoins(_coins + value);
     }
 }

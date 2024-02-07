@@ -90,7 +90,7 @@ public class RoomManager : MonoBehaviour
 
         this.DelayedAction(2f, () => GlobalEvent.InvokeGlobal("on-room-finish"));
 
-        //coins///////
+        CoinManager.Instance.AddCoins(coins);
     }
 
     public void OnRoomChange()
