@@ -1,3 +1,4 @@
+using BrightLib.Animation.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -143,7 +144,17 @@ public class BottleController : MonoBehaviour
                 chunksArray[4].gameObject.SetActive(true);
                 chunksArray[4].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                 selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
+
+                var speed = 1f;
+                if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                {
+                    speed += 1;
+
+                    if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
+                        speed += 1;
+                }
+
+                ChunkReducing(selected.chunksArray[selected.lastActiveIndex], 0f, speed);
                 selected.anima.SetTrigger("isPouring");
 
                 //second consequent
@@ -152,7 +163,7 @@ public class BottleController : MonoBehaviour
                     chunksArray[3].gameObject.SetActive(true);
                     chunksArray[3].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                     selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                    selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
+                    ChunkReducing(selected.chunksArray[selected.lastActiveIndex + 1], 1f / speed, speed);
 
                     //third consequent
                     if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color)
@@ -160,7 +171,7 @@ public class BottleController : MonoBehaviour
                         chunksArray[2].gameObject.SetActive(true);
                         chunksArray[2].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                         selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                        selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                        ChunkReducing(selected.chunksArray[selected.lastActiveIndex + 2], 2f / speed, speed);
                         //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
                         //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
                         //selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
@@ -193,7 +204,17 @@ public class BottleController : MonoBehaviour
                     chunksArray[lastActiveIndex - 1].gameObject.SetActive(true);
                     chunksArray[lastActiveIndex - 1].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                     selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                    selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isReducing");
+
+                    var speed = 1f;
+                    if (selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 2].gameObject.CompareTag("color"))
+                    {
+                        speed += 1f;
+
+                        if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
+                            speed += 1f;
+                    }
+
+                    ChunkReducing(selected.chunksArray[selected.lastActiveIndex], 0f, speed);
                     selected.anima.SetTrigger("isPouring");
                     
                     //second consequent
@@ -202,7 +223,7 @@ public class BottleController : MonoBehaviour
                             chunksArray[lastActiveIndex - 2].gameObject.SetActive(true);
                             chunksArray[lastActiveIndex - 2].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                             selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                            selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isReducing");
+                            ChunkReducing(selected.chunksArray[selected.lastActiveIndex + 1], 1f / speed, speed);
 
                             //third consequent
                             if (selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Renderer>().sharedMaterial.color == selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial.color && chunksArray[lastActiveIndex - 3].gameObject.CompareTag("color"))
@@ -210,11 +231,11 @@ public class BottleController : MonoBehaviour
                                     chunksArray[lastActiveIndex - 3].gameObject.SetActive(true);
                                     chunksArray[lastActiveIndex - 3].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
                                     selected.chunksArray[8].GetComponent<Renderer>().sharedMaterial = selected.chunksArray[selected.lastActiveIndex].GetComponent<Renderer>().sharedMaterial;
-                                    selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
-                                    //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
-                                    //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
-                                    //selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
-                                    Invoke("AfterWaiting", 1.5f);
+                            ChunkReducing(selected.chunksArray[selected.lastActiveIndex + 2], 2f / speed, speed);
+                            //selected.chunksArray[selected.lastActiveIndex].GetComponent<Animator>().SetTrigger("isSliding2");
+                            //selected.chunksArray[selected.lastActiveIndex + 1].GetComponent<Animator>().SetTrigger("isSliding");
+                            //selected.chunksArray[selected.lastActiveIndex + 2].GetComponent<Animator>().SetTrigger("isReducing");
+                            Invoke("AfterWaiting", 1.5f);
                             }
                             else
                             {
@@ -240,10 +261,20 @@ public class BottleController : MonoBehaviour
         }
     }
 
+    private void ChunkReducing(Transform ct, float delay, float speed)
+    {
+        this.DelayedAction(delay, () => {
+            var anim = ct.GetComponent<Animator>();
+            anim.SetTrigger("isReducing");
+            anim.speed = speed;
+        });
+    }
+
     public void OnPourAnimationComplete(GameObject go)
     {
        go.SetActive(false);
     }
+
     void AfterWaiting()
     {
         //for(int i=1; i<5; i++)

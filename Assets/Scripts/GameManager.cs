@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
         //Invoke("LevelNext", 3.0f);
 
         ShowBottles();
+
+        GlobalEvent.InvokeGlobal("on-level-win");
     }
 
     private void ShowBottles()
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
 
         _levelObject = Instantiate(levels[_levelId].levelPrefab, null);
 
-        //GlobalEvent.InvokeGlobal("on-level-start");
+        GlobalEvent.InvokeGlobal("on-level-start");
     }
 
     public void LevelRestart()

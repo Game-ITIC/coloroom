@@ -59,6 +59,8 @@ public class MyPaletteManager : MonoBehaviour
 
             _items.Add(i);
         }
+
+        CheckPaletteEmpty();
     }
 
     private void SavePalette()
@@ -88,8 +90,24 @@ public class MyPaletteManager : MonoBehaviour
     public void OnPaletteChange()
     {
         SavePalette();
+
+        CheckPaletteEmpty();
     }
 
+    private void CheckPaletteEmpty()
+    {
+        bool empty = true;
+
+        foreach (var i in _items)
+            if (i.GetCount() > 0)
+            {
+                empty = false;
+                break;
+            }
+
+        if (empty)
+            GlobalEvent.InvokeGlobal("on-palette-empty");
+    }
 
     public static void AddColorsStatic(ColorManager.ColorKey[] colors)
     {

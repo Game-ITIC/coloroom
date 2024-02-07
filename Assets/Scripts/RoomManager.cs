@@ -15,7 +15,7 @@ public class RoomManager : MonoBehaviour
     }
 
     [SerializeField] private string roomName = "Living room";
-    //[SerializeField] private int coins = 100;
+    [SerializeField] private int coins = 100;
 
     private Room room;
     
@@ -89,6 +89,8 @@ public class RoomManager : MonoBehaviour
         PlayerPrefs.DeleteKey("my-room-data-" + name);
 
         this.DelayedAction(2f, () => GlobalEvent.InvokeGlobal("on-room-finish"));
+
+        //coins///////
     }
 
     public void OnRoomChange()
