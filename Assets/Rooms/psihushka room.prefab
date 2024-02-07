@@ -2045,7 +2045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_Name
-      value: bedroom 1
+      value: psihushka room
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
       propertyPath: m_IsActive
@@ -2193,7 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e6c82539b4002489dae0af0c0f9346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: Bedroom
+  roomName: Chilling room
 --- !u!4 &6446849566627493917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
