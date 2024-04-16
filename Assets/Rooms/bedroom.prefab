@@ -1999,6 +1999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: Bedroom
+  coins: 100
 --- !u!23 &6029642699226465600 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 959529426404563638, guid: f17fcef6775ef5c4d9b3b04be16d9138, type: 3}
