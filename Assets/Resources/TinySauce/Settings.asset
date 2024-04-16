@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa11ec82e9746928e211e7f096812ca, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  gameAnalyticsIosGameKey: 
+  gameAnalyticsIosSecretKey: 
+  gameAnalyticsAndroidGameKey: 4baf758e49e6e0415e64dd808f8dca5f
+  gameAnalyticsAndroidSecretKey: 725466191091211e21f61b1e473f7e856ab7b2f6
+  facebookAppId: 766830762005709
+  facebookClientToken: aabfcdae9f8edbfc350596fb07f7decc
+  adjustIOSToken: 
+  adjustAndroidToken: 92inr4a67sw0
+  EditorIdfa: cd04d024-d38e-4d8f-9fcf-8adac479898e
+  UseRemoteConfig: 0
+  UseVoodooAnalytics: 1
+  companyName: ITIC Game
+  privacyPolicyURL: https://www.voodoo.io/privacy/
+  developerContactEmail: xikmat.allaberganovv@gmail.com

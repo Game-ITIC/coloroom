@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
                 SaveLevel();
 
                 SaveBottles();
+
+                TinySauce.OnGameFinished(true, 0);
             }
         }
     }
@@ -117,6 +119,8 @@ public class GameManager : MonoBehaviour
         _levelObject = Instantiate(levels[_levelId].levelPrefab, null);
 
         GlobalEvent.InvokeGlobal("on-level-start");
+
+        TinySauce.OnGameStarted(_levelId.ToString());
     }
 
     public void LevelRestart()
