@@ -721,13 +721,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 744649444130775061, guid: 711705de23f1685428ae1a52096fa6db, type: 3}
+  - {fileID: 744649444130775061, guid: 11cae92a3a9d1df4ebbaa54c55068211, type: 3}
   - {fileID: 744649444130775061, guid: e812737f2fdbb684b8e1ba549be82cdb, type: 3}
   - {fileID: 6675423144298031645, guid: 57088950ba30bdd4ca806be320cf51b3, type: 3}
   - {fileID: 6897358968251602186, guid: d4a21b89805a2cb4998857fa4b8d9d32, type: 3}
   - {fileID: 4507884003956698128, guid: 2d234e65b138cad49a3e76773c8ef22d, type: 3}
   - {fileID: 744649444130775061, guid: d1353908824a7de4ea8bb16067f35099, type: 3}
   - {fileID: 6897358968251602186, guid: eb069cdebf481fe49b975e358764c606, type: 3}
+  - {fileID: 744649444130775061, guid: 11cae92a3a9d1df4ebbaa54c55068211, type: 3}
   title: {fileID: 1677651393}
   title2: {fileID: 1482452367}
   title3: {fileID: 198028134}
