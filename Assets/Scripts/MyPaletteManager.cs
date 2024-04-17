@@ -28,6 +28,7 @@ public class MyPaletteManager : MonoBehaviour
     [Space]
     [SerializeField] private MyPaletteItem paletteItemPrefab;
     [SerializeField] private RectTransform paletteItemParent;
+    [SerializeField] private GameObject goToStore;
 
     private List<MyPaletteItem> _items = new List<MyPaletteItem>();
 
@@ -59,6 +60,9 @@ public class MyPaletteManager : MonoBehaviour
 
             _items.Add(i);
         }
+
+        //add a store button
+        Instantiate(goToStore, paletteItemParent);
 
         CheckPaletteEmpty();
     }

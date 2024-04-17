@@ -9,7 +9,7 @@ public class RoomManager : MonoBehaviour
     public static RoomManager Active;
 
     [Serializable]
-    private class Room
+    public class Room
     {
         public ColorManager.ColorKey[] spotColors = {};
     }
@@ -17,7 +17,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private string roomName = "Living room";
     [SerializeField] private int coins = 100;
 
-    private Room room;
+    public Room room;
     
     private RoomColorSpot[] _spots;
     private float _progress = 0f;
@@ -85,6 +85,10 @@ public class RoomManager : MonoBehaviour
     private void CheckFinish()
     {
         if (_progress < 1f) return;
+
+        //add to gallery
+        //GallerySaver gallery = FindObjectOfType<GallerySaver>();
+        //gallery.AddRoomToGallery(room);
 
         PlayerPrefs.DeleteKey("my-room-data-" + name);
 
