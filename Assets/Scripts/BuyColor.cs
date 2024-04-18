@@ -12,18 +12,18 @@ public class BuyColor : MonoBehaviour
 
     public void Start()
     {
-        btnText = btn.transform.GetChild(3).gameObject.GetComponent<TextMeshProUGUI>();
+        btnText = btn.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     public void OnMouseDown()
     {
         if (selected != null)
         {
-            selected.transform.GetChild(0).gameObject.SetActive(false);
+            selected.transform.GetChild(3).gameObject.SetActive(false);
             selected = null;
         }
         selected = this;
-        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(3).gameObject.SetActive(true);
         btnText.text = selected.cost.ToString();
     }
 }
