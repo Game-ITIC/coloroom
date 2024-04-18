@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuyColor : MonoBehaviour
 {
     public int cost;
-    static BuyColor selected;
+    public ColorManager.ColorKey colorKey;
+    public static BuyColor selected;
     [SerializeField] GameObject btn;
     private TextMeshProUGUI btnText;
+    private Image img1, img2;
 
     public void Start()
     {
         btnText = btn.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>();
+        img1 = btn.transform.GetChild(1).gameObject.GetComponent<Image>();
+        img2 = btn.transform.GetChild(2).gameObject.GetComponent<Image>();
     }
 
     public void OnMouseDown()
@@ -25,5 +30,26 @@ public class BuyColor : MonoBehaviour
         selected = this;
         transform.GetChild(3).gameObject.SetActive(true);
         btnText.text = selected.cost.ToString();
+
+        BtnColorChanger();
+    }
+
+    public void Update()
+    {
+        BtnColorChanger();
+    }
+
+    public void BtnColorChanger()
+    {
+        if (selected.cost <= CoinManager.Instance._coins)
+        {
+            img1.color = new Color(0.1f, 0.75f, 0f, 1f);
+            img2.color = new Color(0.12f, 0.89f, 0f, 1f);
+        }
+        else
+        {
+            img1.color = new Color(0.75f, 0.09f, 0f, 1f);
+            img2.color = new Color(1f, 0.25f, 0.17f, 1f);
+        }
     }
 }

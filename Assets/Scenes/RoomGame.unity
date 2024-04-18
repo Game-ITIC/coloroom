@@ -5012,6 +5012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 1366334639}
+  _coins: 0
 --- !u!95 &1529924472
 Animator:
   serializedVersion: 5
