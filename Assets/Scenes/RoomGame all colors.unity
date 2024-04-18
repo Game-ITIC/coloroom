@@ -763,18 +763,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 715861554}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!82 &182682253
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1839,9 +1827,95 @@ MonoBehaviour:
   palette:
     items:
     - color: 1
-      count: 1
+      count: 9
+    - color: 2
+      count: 9
+    - color: 3
+      count: 9
+    - color: 4
+      count: 9
     - color: 5
-      count: 1
+      count: 9
+    - color: 6
+      count: 9
+    - color: 7
+      count: 9
+    - color: 8
+      count: 9
+    - color: 9
+      count: 9
+    - color: 10
+      count: 9
+    - color: 11
+      count: 9
+    - color: 12
+      count: 9
+    - color: 13
+      count: 9
+    - color: 14
+      count: 9
+    - color: 15
+      count: 9
+    - color: 16
+      count: 9
+    - color: 17
+      count: 9
+    - color: 18
+      count: 9
+    - color: 19
+      count: 9
+    - color: 20
+      count: 9
+    - color: 21
+      count: 9
+    - color: 22
+      count: 9
+    - color: 23
+      count: 9
+    - color: 24
+      count: 9
+    - color: 25
+      count: 9
+    - color: 26
+      count: 9
+    - color: 27
+      count: 9
+    - color: 28
+      count: 9
+    - color: 29
+      count: 9
+    - color: 30
+      count: 9
+    - color: 31
+      count: 9
+    - color: 32
+      count: 9
+    - color: 33
+      count: 9
+    - color: 34
+      count: 9
+    - color: 35
+      count: 9
+    - color: 36
+      count: 9
+    - color: 37
+      count: 9
+    - color: 38
+      count: 9
+    - color: 39
+      count: 9
+    - color: 40
+      count: 9
+    - color: 41
+      count: 9
+    - color: 42
+      count: 9
+    - color: 43
+      count: 9
+    - color: 44
+      count: 9
+    - color: 45
+      count: 9
   paletteItemPrefab: {fileID: 960043014245140566, guid: 61592eaf9dfe7be42af617e1e693f960, type: 3}
   paletteItemParent: {fileID: 2036069150}
 --- !u!1 &705507993
@@ -2084,134 +2158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedcd4e1d776a6a459ded05463b2bb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &715861553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 715861555}
-  - component: {fileID: 715861554}
-  m_Layer: 0
-  m_Name: completeSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &715861554
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715861553}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4376306c2da4c9e4c803aa6e88956b75, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &715861555
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715861553}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.28604, y: 255.04453, z: -9.150574}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &756258404
 GameObject:
   m_ObjectHideFlags: 0
@@ -6020,4 +5966,3 @@ SceneRoots:
   - {fileID: 1036401472}
   - {fileID: 182682250}
   - {fileID: 173030643}
-  - {fileID: 715861555}

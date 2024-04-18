@@ -7,7 +7,7 @@ public class MyPaletteManager : MonoBehaviour
 {
     public static MyPaletteManager Instance;
 
-    [Serializable] private class Palette
+    [Serializable] public class Palette
     {
         [Serializable] public class Item
         {

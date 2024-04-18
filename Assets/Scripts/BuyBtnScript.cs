@@ -11,6 +11,16 @@ public class BuyBtnScript : MonoBehaviour
 {
     int cost = 0;
     ColorManager.ColorKey ck;
+    public AudioSource aud1, aud2;
+    private Animator anim;
+    public string animationName = "btnAnimation";
+
+    private void Awake()
+    {
+        aud1 = GetComponent<AudioSource>();
+        aud1 = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+    }
 
     public void OnPressed()
     {
@@ -22,6 +32,8 @@ public class BuyBtnScript : MonoBehaviour
             if (cost <= CoinManager.Instance._coins)
             {
                 CoinManager.Instance.ReduceCoins(cost);
+                aud1.Play();
+                anim.Play(animationName, -1, 0f);
 
                 List<ColorManager.ColorKey> colorKeys = new List<ColorManager.ColorKey>();
                 colorKeys.Add(ck);
@@ -29,7 +41,7 @@ public class BuyBtnScript : MonoBehaviour
             }
             else
             {
-                
+                aud2.Play();
             }
         }
         else
