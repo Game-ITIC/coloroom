@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Recorder.OutputPath;
 using System;
 using System.IO;
-using Unity.VisualScripting;
 using static RoomManager;
 
 public class GallerySaver : MonoBehaviour

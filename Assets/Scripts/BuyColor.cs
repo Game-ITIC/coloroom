@@ -45,7 +45,7 @@ public class BuyColor : MonoBehaviour
 
     public void Update()
     {
-        BtnColorChanger();
+        //BtnColorChanger();
     }
 
     public void BtnColorChanger()
