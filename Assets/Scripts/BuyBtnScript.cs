@@ -10,7 +10,7 @@ using static ColorManager;
 public class BuyBtnScript : MonoBehaviour
 {
     int cost = 0;
-    ColorManager.ColorKey ck;
+    public ColorManager.ColorKey ck;
     public AudioSource aud1, aud2;
     private Animator anim;
     public string animationName = "btnAnimation";
