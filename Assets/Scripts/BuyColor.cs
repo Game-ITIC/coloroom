@@ -10,7 +10,6 @@ public class BuyColor : MonoBehaviour
 {
     public int cost;
     public ColorManager.ColorKey colorKey;
-    public MyPaletteItem item;
     public static BuyColor selected;
     [SerializeField] GameObject btn;
     private TextMeshProUGUI btnText;
