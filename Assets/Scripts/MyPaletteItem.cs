@@ -10,7 +10,7 @@ public class MyPaletteItem : MonoBehaviour
     public static MyPaletteItem selected = null;
 
     [SerializeField] private ColorManager.ColorKey color;
-    [SerializeField] private int count = 1;
+    [SerializeField] public int count = 1;
     //timer
     //ad feature
     [Space]

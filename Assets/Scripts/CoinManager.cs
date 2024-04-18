@@ -10,7 +10,7 @@ public class CoinManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI coinText;
 
-    private int _coins = 0;
+    public int _coins = 0;
 
     private void Awake()
     {
@@ -41,5 +41,10 @@ public class CoinManager : MonoBehaviour
     public void AddCoins(int value)
     {
         SetCoins(_coins + value);
+    }
+
+    public void ReduceCoins(int value)
+    {
+        SetCoins(_coins - value);
     }
 }
