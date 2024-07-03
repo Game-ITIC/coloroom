@@ -44,9 +44,5 @@ public class BuyBtnScript : MonoBehaviour
                 aud2.Play();
             }
         }
-        else
-        {
-
-        }      
     }
 }
