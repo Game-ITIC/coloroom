@@ -11,8 +11,8 @@ namespace Itic.Ad
         
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        [SerializeField] private string _adUnitId = "ca-app-pub-3940256099942544/1033173712";//"ca-app-pub-4981577085737170/4506162460";
-        [SerializeField] private string _adBannerId = "ca-app-pub-3940256099942544/6300978111";//""ca-app-pub-4981577085737170/8972066216";
+        [SerializeField] private string _adUnitId = "ca-app-pub-4981577085737170/4506162460";//"ca-app-pub-4981577085737170/4506162460";
+        [SerializeField] private string _adBannerId = "ca-app-pub-4981577085737170/8972066216";//""ca-app-pub-4981577085737170/8972066216";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
