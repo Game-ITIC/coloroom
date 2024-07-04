@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Itic.Ad;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class RoomSceneManager : MonoBehaviour
 
     private int _levelId = 0;
     private RoomManager _levelObject;
+    
     AudioSource aud;
 
     private void Awake()
@@ -60,6 +62,9 @@ public class RoomSceneManager : MonoBehaviour
     {
         int nextId = (_levelId + 1) % roomPrefabs.Length;
 
+        AdManager.Instance.ShowInterstitialAd();
+        AdManager.Instance.LoadBannerAd();
+        
         OpenLevel(nextId);
     }
 }
