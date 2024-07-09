@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class RoomSceneManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _videoRewardButton;
     [SerializeField] private RoomManager[] roomPrefabs;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI title2;
@@ -35,8 +36,11 @@ public class RoomSceneManager : MonoBehaviour
         _levelId = id;
 
         SetTitles();
-
+        
         _levelObject = Instantiate(roomPrefabs[_levelId]);
+        
+        AdManager.Instance.LoadBannerAd();
+        AdManager.Instance.LoadRewardedAd();
     }
 
     private void SetTitles()
@@ -54,16 +58,32 @@ public class RoomSceneManager : MonoBehaviour
     {
         int nextId = (_levelId + 1) % roomPrefabs.Length;
         aud.Play();
-
+        
+        _videoRewardButton.SetActive(AdManager.Instance.HasRewardVideo);
+        
         PlayerPrefs.SetInt("room-level-id", nextId);
     }
 
+    public void ShowRewardVideo()
+    {
+        AdManager.Instance.ShowRewardedAd(AddCoinAndGoNext);
+    }
+
+    private void AddCoinAndGoNext(bool isRewardGot)
+    {
+        if (isRewardGot)
+        {
+            CoinManager.Instance.AddCoins(100);
+        }
+        
+        NextLevel();
+    }
+    
     public void NextLevel()
     {
         int nextId = (_levelId + 1) % roomPrefabs.Length;
 
         AdManager.Instance.ShowInterstitialAd();
-        AdManager.Instance.LoadBannerAd();
         
         OpenLevel(nextId);
     }

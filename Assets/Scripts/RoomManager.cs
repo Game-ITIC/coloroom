@@ -82,6 +82,15 @@ public class RoomManager : MonoBehaviour
         this.DelayedAction(1f, () => Progressbar.Main.SetValue(_progress));
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _progress = 1;
+            CheckFinish();
+        }
+    }
+
     private void CheckFinish()
     {
         if (_progress < 1f) return;

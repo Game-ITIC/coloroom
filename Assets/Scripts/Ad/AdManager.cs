@@ -8,10 +8,13 @@ namespace Itic.Ad
     public class AdManager : MonoBehaviour
     {
         public static AdManager Instance;
+
+        public bool HasRewardVideo => _rewardedAd != null && _rewardedAd.CanShowAd();
         
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
         [SerializeField] private string _adUnitId = "ca-app-pub-4981577085737170/4506162460";//"ca-app-pub-4981577085737170/4506162460";
+        [SerializeField] private string _adRewardId = "ca-app-pub-4981577085737170/4506162460";//"ca-app-pub-4981577085737170/4506162460";
         [SerializeField] private string _adBannerId = "ca-app-pub-4981577085737170/8972066216";//""ca-app-pub-4981577085737170/8972066216";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
@@ -20,6 +23,10 @@ namespace Itic.Ad
 #endif
 
         private BannerView _bannerView;
+        private InterstitialAd _interstitialAd;
+        private RewardedAd _rewardedAd;
+
+        private bool _isInitialized;
         private int _indexOfAd;
         
         private void Awake()
@@ -39,19 +46,82 @@ namespace Itic.Ad
             // Initialize the Google Mobile Ads SDK.
             MobileAds.Initialize(_ =>
             {
+                _isInitialized = true;
                 LoadInterstitialAd();
+                LoadRewardedAd();
                 LoadBannerAd();
             });
         }
 
+        /// <summary>
+        /// Loads the rewarded ad.
+        /// </summary>
+        public void LoadRewardedAd()
+        {
+            if (!_isInitialized)
+            {
+                return;
+            }
+            // Clean up the old ad before loading a new one.
+            if (_rewardedAd != null)
+            {
+                _rewardedAd.Destroy();
+                _rewardedAd = null;
+            }
 
-        private InterstitialAd _interstitialAd;
+            Debug.Log("Loading the rewarded ad.");
 
+            // create our request used to load the ad.
+            var adRequest = new AdRequest();
+
+            // send the request to load the ad.
+            RewardedAd.Load(_adRewardId, adRequest,
+                (RewardedAd ad, LoadAdError error) =>
+                {
+                    // if error is not null, the load request failed.
+                    if (error != null || ad == null)
+                    {
+                        Debug.LogError("Rewarded ad failed to load an ad " +
+                                       "with error : " + error);
+                        return;
+                    }
+
+                    Debug.Log("Rewarded ad loaded with response : "
+                              + ad.GetResponseInfo());
+
+                    _rewardedAd = ad;
+                });
+        }
+        
+        public void ShowRewardedAd(Action<bool> onComplete)
+        {
+            const string rewardMsg =
+                "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
+
+            if (_rewardedAd != null && _rewardedAd.CanShowAd())
+            {
+                _rewardedAd.Show((Reward reward) =>
+                {
+                    // TODO: Reward the user.
+                    Debug.Log(string.Format(rewardMsg, reward.Type, reward.Amount));
+                    onComplete?.Invoke(reward.Amount > 0);
+                });
+            }
+            else
+            {
+                onComplete?.Invoke(false);
+            }
+        }
+        
         /// <summary>
         /// Loads the interstitial ad.
         /// </summary>
         public void LoadInterstitialAd()
         {
+            if (!_isInitialized)
+            {
+                return;
+            }
             // Clean up the old ad before loading a new one.
             if (_interstitialAd != null)
             {
@@ -83,20 +153,16 @@ namespace Itic.Ad
                 });
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                ShowInterstitialAd();
-            }
-        }
-
         /// <summary>
         /// Creates the banner view and loads a banner ad.
         /// </summary>
         public void LoadBannerAd()
         {
-            Debug.Log("Load");
+            if (!_isInitialized)
+            {
+                return;
+            }
+            
             // create an instance of a banner view first.
             if(_bannerView == null)
             {
@@ -125,7 +191,7 @@ namespace Itic.Ad
             }
 
             // Create a 320x50 banner at top of the screen
-            _bannerView = new BannerView(_adBannerId, AdSize.Banner, AdPosition.Bottom);
+            _bannerView = new BannerView(_adBannerId, AdSize.IABBanner, AdPosition.Bottom);
         }
         
         /// <summary>
@@ -161,7 +227,7 @@ namespace Itic.Ad
             }
             else
             {
-                Debug.LogError("Interstitial ad is not ready yet.");
+                LoadInterstitialAd();
             }
         }
     }
