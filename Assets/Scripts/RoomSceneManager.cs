@@ -14,7 +14,8 @@ public class RoomSceneManager : MonoBehaviour
 
     private int _levelId = 0;
     private RoomManager _levelObject;
-    
+
+    private bool _isRewardGot;
     AudioSource aud;
 
     private void Awake()
@@ -33,13 +34,13 @@ public class RoomSceneManager : MonoBehaviour
         if (_levelObject != null)
             Destroy(_levelObject.gameObject);
 
+        _isRewardGot = false;
         _levelId = id;
 
         SetTitles();
         
         _levelObject = Instantiate(roomPrefabs[_levelId]);
         
-        AdManager.Instance.LoadBannerAd();
         AdManager.Instance.LoadRewardedAd();
     }
 
@@ -75,7 +76,8 @@ public class RoomSceneManager : MonoBehaviour
         {
             CoinManager.Instance.AddCoins(100);
         }
-        
+
+        _isRewardGot = isRewardGot;
         NextLevel();
     }
     
@@ -83,7 +85,10 @@ public class RoomSceneManager : MonoBehaviour
     {
         int nextId = (_levelId + 1) % roomPrefabs.Length;
 
-        AdManager.Instance.ShowInterstitialAd();
+        if (!_isRewardGot)
+        {
+            AdManager.Instance.ShowInterstitialAd();
+        }
         
         OpenLevel(nextId);
     }

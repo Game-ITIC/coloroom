@@ -1,6 +1,5 @@
 ﻿using System;
 using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 using UnityEngine;
 
 namespace Itic.Ad
@@ -13,9 +12,9 @@ namespace Itic.Ad
         
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        [SerializeField] private string _adUnitId = "ca-app-pub-4981577085737170/4506162460";//"ca-app-pub-4981577085737170/4506162460";
-        [SerializeField] private string _adRewardId = "ca-app-pub-4981577085737170/4506162460";//"ca-app-pub-4981577085737170/4506162460";
-        [SerializeField] private string _adBannerId = "ca-app-pub-4981577085737170/8972066216";//""ca-app-pub-4981577085737170/8972066216";
+        [SerializeField] private string _adUnitId = "ca-app-pub-4981577085737170/4506162460";
+        [SerializeField] private string _adRewardId = "ca-app-pub-4981577085737170/5340367992";
+        [SerializeField] private string _adBannerId = "ca-app-pub-4981577085737170/8972066216";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -28,6 +27,7 @@ namespace Itic.Ad
 
         private bool _isInitialized;
         private int _indexOfAd;
+
         
         private void Awake()
         {
@@ -40,7 +40,7 @@ namespace Itic.Ad
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
+        
         public void Start()
         {
             // Initialize the Google Mobile Ads SDK.
@@ -49,7 +49,6 @@ namespace Itic.Ad
                 _isInitialized = true;
                 LoadInterstitialAd();
                 LoadRewardedAd();
-                LoadBannerAd();
             });
         }
 
@@ -191,7 +190,7 @@ namespace Itic.Ad
             }
 
             // Create a 320x50 banner at top of the screen
-            _bannerView = new BannerView(_adBannerId, AdSize.IABBanner, AdPosition.Bottom);
+            _bannerView = new BannerView(_adBannerId, AdSize.Banner, AdPosition.Bottom);
         }
         
         /// <summary>
@@ -212,14 +211,6 @@ namespace Itic.Ad
         /// </summary>
         public void ShowInterstitialAd()
         {
-            _indexOfAd++;
-            
-            if (_indexOfAd < 2)
-            {
-                return;
-            }
-
-            _indexOfAd = 0;
             if (_interstitialAd != null && _interstitialAd.CanShowAd())
             {
                 Debug.Log("Showing interstitial ad.");
