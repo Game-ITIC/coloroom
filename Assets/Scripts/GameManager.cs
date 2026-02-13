@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
 
                 SaveBottles();
 
-                TinySauce.OnGameFinished(true, 0);
             }
         }
     }
@@ -120,7 +119,6 @@ public class GameManager : MonoBehaviour
 
         GlobalEvent.InvokeGlobal("on-level-start");
 
-        TinySauce.OnGameStarted(_levelId.ToString());
     }
 
     public void LevelRestart()

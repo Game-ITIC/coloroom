@@ -1,0 +1,1 @@
+C:\Users\PREDATOR\OneDrive\Desktop\Main\Unity\ITIC\coloroom\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\12424u2j\obj\armeabi-v7a
