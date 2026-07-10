@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402185, g: 0.49316472, b: 0.57223153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -245,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Green
+      value: Yaltiroq yashil
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -469,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: White
+      value: Oq
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -595,7 +591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Magenta
+      value: Yaltiroq to'q pushti
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_fontSize
@@ -729,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Geometry
+      value: Geometriya
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -855,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Yellow
+      value: Sariq
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -981,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Pattern
+      value: Naqsh
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1126,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Peachy
+      value: Shaftolirang
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -1327,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Turquoise
+      value: Feruza
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -1453,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Pink Dots
+      value: Pushti nuqtalar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -1654,7 +1650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Golden
+      value: Oltin rang
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -1780,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Brown
+      value: Jigarrang
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1925,7 +1921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Orange
+      value: To'q sariq
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2070,7 +2066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Black
+      value: Qora
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -2264,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Stars
+      value: Yulduzlar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -2450,7 +2446,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d45c551f6adfda42904fe4f742230b6, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 1d45c551f6adfda42904fe4f742230b6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.362
   m_Pitch: 1
@@ -2626,7 +2623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Yellow Flowers
+      value: Sariq gullar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -2832,20 +2829,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3036,7 +3036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Black
+      value: Yaltiroq qora
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -3283,7 +3283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Lime
+      value: Yaltiroq laym
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -3409,7 +3409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Orange
+      value: Yaltiroq to'q sariq
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -3540,20 +3540,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -3669,7 +3672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Green
+      value: Yashil
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -3795,7 +3798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Blue Dots
+      value: Ko'k nuqtalar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -3921,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Light Blue
+      value: Yaltiroq och ko'k
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_fontSize
@@ -4074,7 +4077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Blue
+      value: Yaltiroq ko'k
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -4187,7 +4190,7 @@ MonoBehaviour:
           m_CallState: 2
 --- !u!95 &1239412162
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4201,6 +4204,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -4378,7 +4382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Purple
+      value: Yaltiroq binafsha
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -4504,7 +4508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Light Blue
+      value: Och ko'k
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -4630,7 +4634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Purple
+      value: Binafsha
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -4756,7 +4760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Dots
+      value: Nuqtalar
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4901,7 +4905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Maroon
+      value: To'q qizil
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5046,7 +5050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Pink
+      value: Yaltiroq pushti
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5191,7 +5195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Hearts
+      value: Yuraklar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -5317,7 +5321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Gray
+      value: Kulrang
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5462,7 +5466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Pink
+      value: Pushti
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -5532,6 +5536,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5729,7 +5736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Magenta
+      value: To'q pushti
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -5906,9 +5913,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 1600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -6050,7 +6057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Herbs
+      value: Giyohlar
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6195,7 +6202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Lime
+      value: Laym
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -6346,9 +6353,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654035847}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -6398,8 +6404,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1001 &1669674250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6490,7 +6500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Blue
+      value: Ko'k
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6635,7 +6645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Flowers
+      value: Gullar
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6913,7 +6923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Red
+      value: Yaltiroq qizil
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -7039,7 +7049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Plaid
+      value: Katakli
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -7165,7 +7175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Shapes
+      value: Shakllar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -7446,7 +7456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Leaves
+      value: Barglar
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -7609,7 +7619,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4376306c2da4c9e4c803aa6e88956b75, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 4376306c2da4c9e4c803aa6e88956b75, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7705,7 +7716,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: af0658b66de4186419cce2c2118510d8, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: af0658b66de4186419cce2c2118510d8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7793,7 +7805,7 @@ AudioSource:
     m_RotationOrder: 4
 --- !u!95 &2063522067
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7807,6 +7819,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -7902,7 +7915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Lilac
+      value: Och binafsha
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8051,7 +8064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkly Lilac
+      value: Yaltiroq och binafsha
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
@@ -8177,7 +8190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Sparkles
+      value: Yaltiroqlar
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8322,7 +8335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_text
-      value: Silver
+      value: Kumushrang
       objectReference: {fileID: 0}
     - target: {fileID: 1384895057317829418, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8464,6 +8477,14 @@ PrefabInstance:
     - target: {fileID: 154839230156643325, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
+      propertyPath: m_text
+      value: Qizil
+      objectReference: {fileID: 0}
+    - target: {fileID: 306617598974547672, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 3598183106993553763, guid: 420d6175fd3cf004cacbe9f6085df81d, type: 3}
       propertyPath: btn
