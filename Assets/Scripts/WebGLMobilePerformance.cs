@@ -6,8 +6,7 @@ public static class WebGLMobilePerformance
     private static void Configure()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        if (Application.isMobilePlatform)
-            Application.targetFrameRate = 30;
+        Application.targetFrameRate = Application.isMobilePlatform || SystemInfo.deviceType == DeviceType.Handheld ? 30 : 60;
 #endif
     }
 }

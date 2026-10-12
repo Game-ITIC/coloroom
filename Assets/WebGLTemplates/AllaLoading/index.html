@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#090b25">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <link rel="stylesheet" href="style.css?v=20261012-1">
+</head>
+<body>
+  <main id="stage" aria-label="O‘yin yuklanmoqda">
+    <div class="aurora aurora-one"></div><div class="aurora aurora-two"></div>
+    <div class="stars" aria-hidden="true">✦ <i>✧</i> ✦ <i>✧</i> ✦</div>
+    <section class="welcome">
+      <div class="alla-wordmark" aria-label="Alla"><span>ALLA</span><b aria-hidden="true">✦</b></div>
+      <div class="rule"><span></span><b>✦</b><span></span></div>
+      <img class="publisher" src="bolalar-kontent.png" alt="Bolalar Kontentini Rivojlantirish Markazi">
+      <p class="tagline">KICHKINA OLAMINGIZGA KATTA SARGUZASHT</p>
+    </section>
+    <footer class="loading">
+      <div class="loading-copy"><span id="status">Sarguzasht tayyorlanmoqda</span><span id="percent">0%</span></div>
+      <div class="track"><div id="fill"></div><span class="spark"></span></div>
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    </footer>
+  </main>
+  <canvas id="unity-canvas" width="{{{ WIDTH }}}" height="{{{ HEIGHT }}}" tabindex="-1"></canvas>
+  <script src="Build/{{{ LOADER_FILENAME }}}?v=20261012-1"></script>
+  <script>
+    const canvas = document.querySelector('#unity-canvas');
+    const fill = document.querySelector('#fill');
+    const percent = document.querySelector('#percent');
+    const status = document.querySelector('#status');
+    const stage = document.querySelector('#stage');
+    const desktop = !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const designWidth = Number(canvas.getAttribute('width')) || 1;
+    const designHeight = Number(canvas.getAttribute('height')) || 1;
+    if (desktop) {
+      document.body.classList.add('desktop');
+      const fitCanvas = () => {
+        const scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
+        canvas.style.width = `${Math.round(designWidth * scale)}px`;
+        canvas.style.height = `${Math.round(designHeight * scale)}px`;
+      };
+      fitCanvas();
+      window.addEventListener('resize', fitCanvas);
+    }
+    const config = {
+      dataUrl: "Build/{{{ DATA_FILENAME }}}?v=20261012-1",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}?v=20261012-1",
+      codeUrl: "Build/{{{ CODE_FILENAME }}}?v=20261012-1",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}}
+    };
+    createUnityInstance(canvas, config, progress => {
+      const value = Math.round(progress * 100);
+      fill.style.width = value + '%';
+      percent.textContent = value + '%';
+      if (value > 0) status.textContent = value < 100 ? 'Dunyo yuklanmoqda' : 'Deyarli tayyor';
+    }).then(() => {
+      stage.classList.add('leaving');
+      setTimeout(() => stage.remove(), 750);
+    }).catch(error => {
+      status.textContent = 'Yuklashda xatolik. Sahifani yangilang.';
+      status.classList.add('error');
+      console.error(error);
+    });
+  </script>
+</body>
+</html>
