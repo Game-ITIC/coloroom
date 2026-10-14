@@ -14,7 +14,7 @@ public class RoomManager : MonoBehaviour
         public ColorManager.ColorKey[] spotColors = {};
     }
 
-    [SerializeField] private string roomName = "Living room";
+    [SerializeField] private string roomName = "Mehmonxona";
     [SerializeField] private int coins = 100;
 
     public Room room;
