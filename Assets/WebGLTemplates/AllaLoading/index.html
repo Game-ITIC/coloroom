@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta name="theme-color" content="#090b25">
   <title>{{{ PRODUCT_NAME }}}</title>
-  <link rel="stylesheet" href="style.css?v=20261012-1">
+  <link rel="stylesheet" href="style.css?v=20261014-cachefix1">
 </head>
 <body>
   <main id="stage" aria-label="O‘yin yuklanmoqda">
@@ -24,7 +24,7 @@
     </footer>
   </main>
   <canvas id="unity-canvas" width="{{{ WIDTH }}}" height="{{{ HEIGHT }}}" tabindex="-1"></canvas>
-  <script src="Build/{{{ LOADER_FILENAME }}}?v=20261012-1"></script>
+  <script src="Build/{{{ LOADER_FILENAME }}}?v=20261014-cachefix1"></script>
   <script>
     const canvas = document.querySelector('#unity-canvas');
     const fill = document.querySelector('#fill');
@@ -45,9 +45,9 @@
       window.addEventListener('resize', fitCanvas);
     }
     const config = {
-      dataUrl: "Build/{{{ DATA_FILENAME }}}?v=20261012-1",
-      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}?v=20261012-1",
-      codeUrl: "Build/{{{ CODE_FILENAME }}}?v=20261012-1",
+      dataUrl: "Build/{{{ DATA_FILENAME }}}?v=20261014-cachefix1",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}?v=20261014-cachefix1",
+      codeUrl: "Build/{{{ CODE_FILENAME }}}?v=20261014-cachefix1",
       streamingAssetsUrl: "StreamingAssets",
       companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
       productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
